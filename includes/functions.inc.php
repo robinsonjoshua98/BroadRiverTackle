@@ -1,16 +1,5 @@
 <?php 
 
-
-//  function emptyInputSignup($email, $firstName, $lastName, $pwd, $pwdrepeat, $name) {
-//    $result;
-//    if (empty($email) ||empty($firstName) ||empty($lastName) ||empty($pwd) ||empty($pwdrepeat) ||empty($result)) {
-//      $result = true;
-//    } else {
-//      $result = false;
-//    }
-//    return $result;
-//  }
-
  function emptyInputSignup($email, $firstName, $lastName, $pwd, $pwdrepeat
 ) {
    $result;
@@ -87,4 +76,61 @@ function create($conn, $email, $pwd, $firstName, $lastName) {
   header("location: ../signup.php?error=none" );
   exit();
 }
-?>
+
+function emptyInputLogin($username, $pwd) {
+   $result;
+   if (empty($username) || empty($pwd)) {
+     $result = true;
+   } else {
+     $result = false;
+   }
+   return $result;
+ }
+
+ function loginUser($conn, $username, $pwd){
+  $emailExist = emailExist($conn, $username);
+
+  if($emailExist === false) {
+    header("location: ../login.php?error=wronglogin" );
+    exit();
+  } 
+
+  $pwdHashed = $emailExist["passwords"]; 
+  $checkPwd = password_verify($pwd, $pwdHashed);
+  if ($checkPwd === false) {
+    header("location: ../login.php?error=wronglogin" );
+  }
+  else if ($checkPwd === true) 
+    {
+    session_start();
+    $_SESSION["userID"] = $emailExist["userID"];
+    $_SESSION["email"] = $emailExist["email"];
+    header("location: ../index.php" );
+    exit(); 
+  } 
+}
+
+
+
+
+
+function getUserLevel($conn, $email){
+  $sql = "SELECT userLevel FROM user WHERE email = ?";
+  $stmt = mysqli_stmt_init($conn);
+
+  if (!mysqli_stmt_prepare($stmt, $sql)){
+    header("location: ../signup.php?error=emailtaken");
+    exit();
+  }
+  
+  mysqli_stmt_bind_param($stmt, "s", $email);
+  mysqli_stmt_execute($stmt);
+  
+  $resultData = mysqli_stmt_get_result($stmt);
+return $resultData;
+  echo $resultData;
+
+}
+
+
+

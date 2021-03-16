@@ -24,7 +24,7 @@ if (isset($_GET["error"])) {
 <input type="password" name="pwd" placeholder="Password..">
 <input type="password" name="pwdrepeat" placeholder="Password Repeat..">
 <input type="text" name="firstName" placeholder="First Name..">
-<input type="text" name="lastName" placeholder="Last Name..">
+<input type="text" name="lastName" placeholder="Last Name.."><br>
 <button type="submit" name="submit">Sign up</button>
 
 </form>

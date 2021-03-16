@@ -3,6 +3,16 @@
   include_once 'header.php';
 ?>
    <main>
+   <?php   
+   
+   if(isset($_SESSION["email"])) {
+    echo "<p>".$_SESSION["email"].",   Log out?</p>"; 
+    echo "<a href='includes/logout.inc.php' class='link'><p>Click Here!</p></a>";
+  } 
+   
+  
+?>
+
 
      <h2>The industries answer to used fishing tackle</h2>
      <p>Do you have old tackle laying around that you don't
@@ -23,3 +33,7 @@
  </body>
 
  </html>
+
+<?php
+ include_once "footer.php";
+?>
