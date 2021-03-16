@@ -33,7 +33,7 @@ function pwdMatch($pwd, $pwdrepeat) {
 
 
 function emailExist($conn, $email) {
-  $sql = "SELECT * FROM USER WHERE email = ?;";
+  $sql = "SELECT * FROM user WHERE email = ?;";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)){
     header("location: ../signup.php?error=emailtaken");
@@ -54,10 +54,6 @@ function emailExist($conn, $email) {
   }
   mysqli_stmt_close($stmts);
 }
-
-
-
-
 
 
 function create($conn, $email, $pwd, $firstName, $lastName) {
@@ -112,8 +108,6 @@ function emptyInputLogin($username, $pwd) {
 
 
 
-
-
 function getUserLevel($conn, $email){
   $sql = "SELECT userLevel FROM user WHERE email = ?";
   $stmt = mysqli_stmt_init($conn);
@@ -133,4 +127,13 @@ return $resultData;
 }
 
 
-
+function admin($conn, $username){
+  $sql = "select userLevel FROM user where email = $username";
+  $result = mysqli_query($conn, $sql);
+  // $conn->close();
+  
+  while($row = mysqli_fetch_assoc($result)) {
+      $mysqlResult = "{$row['userLevel']}<br>";
+  }
+  return $mysqlResult;
+  }

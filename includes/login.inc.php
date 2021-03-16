@@ -19,6 +19,7 @@ if (emptyInputLogin($username, $pwd) !== false){
         exit();
   }
 
-  
+
+admin($conn, $username);
 
   

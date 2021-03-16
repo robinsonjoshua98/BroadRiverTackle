@@ -1,7 +1,7 @@
 <?php
     include_once "header.php";
 ?>
-
+<main>
 <section class="signup-form">
     <h2>Sign Up</h2>
     <?php
@@ -29,5 +29,8 @@ if (isset($_GET["error"])) {
 
 </form>
 </section>
-
+</main>
+<?php
+ include_once "footer.php";
+?>
 

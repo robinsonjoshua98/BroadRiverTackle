@@ -1,5 +1,5 @@
 html {
- background-color: darkgray;
+  background-color: #a9a9a9;
   text-align: center;
 }
 
@@ -14,70 +14,79 @@ ul {
 
 li {
   display: inline;
-  padding-right: 4em;
+  padding: 1rem;
 }
 
-a {
+a,
+li {
   text-decoration: none;
 }
+
+a:hover,
+li:hover {
+  background-color: #778899;
+  opacity: .85;
+}
+
+a:visited,
+li:visited {
+  color: #304445;
+}
+
 header {
-  font-size: calc(12px + (21 - 16) * (100vw - 320px) / (1200 - 320));
   background-color: #accace;
+  border: solid 1px #d3d3d3;
+  font-size: calc(12px + (21 - 16) * (100vw - 320px) / (1200 - 320));
   padding: 2rem;
   margin-bottom: 0;
-  border: solid 1px lightgray;
 }
 
 .link {
   padding-top: 4rem;
 }
-/* 
-body { 
- 
-  /* text-align: center;
-  margin: auto;
-   width: 70%;  */
-/*  background-color: #6d6d6d;*/
 
 img {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 main {
-  border: solid 1px lightgray;
-  padding: 1rem;
+  background-color: #d2b48c;
+  border: solid 1px #d3d3d3;
   font-size: calc(12px + (20 - 16) * (100vw - 320px) / (1200 - 320));
   margin: 1rem auto;
+  padding: 1rem;
   width: 50%;
-  background-color: tan;
 }
 
 .responsive {
-  width: 100%;
   height: auto;
+  width: 100%;
 }
 
 /* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea, input[type=password] {
-  width: 80%; /* Full width */
-  padding: 12px; /* Some padding */ 
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+input[type=text],
+select,
+textarea,
+input[type=password] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  padding: 12px;
+  resize: vertical;
+  width: 80%;
 }
 
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
   background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
   border: none;
   border-radius: 4px;
+  color: white;
   cursor: pointer;
+  padding: 12px 20px;
 }
 
 /* When moving the mouse over the submit button, add a darker green color */
@@ -87,25 +96,26 @@ input[type=submit]:hover {
 
 /* Add a background color and some padding around the form */
 .container {
-  border-radius: 5px;
   background-color: tan;
+  border-radius: 5px;
   padding: 20px;
 }
 
 .login {
-  padding: 2rem;;
+  padding: 2rem;
+  ;
 }
 
 .wrapper {
   background-color: #f55951;
 }
 
-footer  {
-  border: solid 1px lightgray;
-  font-size: calc(8px + (20 - 16) * (100vw - 320px) / (1200 - 320));
+footer {
   background-color: #accace;
-  padding: 2rem;
+  border: solid 1px #d3d3d3;
+  font-size: calc(8px + (20 - 16) * (100vw - 320px) / (1200 - 320));
   margin-bottom: 0;
+  padding: 2rem;
 }
 
 @media screen and (max-width: 650px) {
@@ -115,4 +125,3 @@ footer  {
     padding-bottom: .5rem;
   }
 }
-

@@ -5,12 +5,11 @@
  $DB_PASS = "tackletest";
  $DB_NAME = "broad_river_tackle";
 
-//
-//$DB_SERVER = "localhost";
-//$DB_USER = "ulzqv8eys0mky";
-//$DB_PASS = "joshuarob17!";
-//$DB_NAME = "db4lyu9dfcaslk";
 
+// $DB_SERVER = "localhost";
+// $DB_USER = "ugsxyahonfdqu";
+// $DB_PASS = "gjxt5uygaid7";
+// $DB_NAME = "dbz6rt2ohqxank";
 $conn = mysqli_connect($DB_SERVER, $DB_USER, $DB_PASS, $DB_NAME);
 
 if (!$conn) {
