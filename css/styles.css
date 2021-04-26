@@ -1,5 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=PT+Serif&display=swap');
+
 html {
-  background-color: #a9a9a9;
+  background-color: rgb(78, 119, 216);
+  /* text-align: center; */
+}
+
+p {
+  font-family: 'PT Serif', serif;
+}
+
+h1, 
+h2,
+h3,
+h4 {
+  font-family: 'Libre Baskerville', serif;
   text-align: center;
 }
 
@@ -8,6 +22,7 @@ header p {
 }
 
 ul {
+  font-family: 'PT Serif', serif;
   text-align: center;
 }
 
@@ -52,12 +67,12 @@ img {
 }
 
 main {
-  background-color: #d2b48c;
+  background-color: rgb(213, 220, 238);
   border: solid 1px #d3d3d3;
   font-size: calc(12px + (20 - 16) * (100vw - 320px) / (1200 - 320));
   margin: 1rem auto;
   padding: 1rem;
-  width: 50%;
+  width: 75%;
 }
 
 .responsive {
@@ -78,6 +93,13 @@ input[type=password] {
   padding: 12px;
   resize: vertical;
   width: 80%;
+}
+
+label {
+  margin: 2rem;
+}
+input[type=file] {
+ padding-bottom: 2rem;
 }
 
 /* Style the submit button with a specific background color etc */
@@ -127,7 +149,45 @@ footer {
   }
 }
 
+#store {
+  background-color: #757171;
+  padding-bottom: 2rem;
+}
 
 .link {
   color: #45a049;
+}
+
+#red {
+  color: #f55951;
+}
+
+#blue {
+  color: #0000ff;
+}
+
+.flex-container {
+  display: flex;
+  padding-bottom: 1rem;
+}
+
+/* .flex-container > div {
+  background-color: #f1f1f1;
+  margin: auto;
+  padding: 10px;
+  font-size: 30px;
+} */
+
+#center {
+  text-align: center;
+}
+
+.error {
+  text-align: center;
+}
+
+#productForm {
+  border: 3px solid black;
+  text-align: center;
+  padding: 2rem;
 }

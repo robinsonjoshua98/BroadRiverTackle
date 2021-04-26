@@ -3,7 +3,7 @@ session_start();
   $DB_SERVER = "localhost";
   $DB_USER = "test1";
   $DB_PASS = "tackletest";
-  $DB_NAME = "broad_river_tackle";
+  $DB_NAME = "broadRiverFinal";
  
  
  // $DB_SERVER = "localhost";
@@ -35,6 +35,7 @@ session_start();
          <li><a href="index.php">Home</a></li>
          <li><a href="products.php">Products</a></li>
          <li><a href="contact-us.php">Contact Us</a></li>
+         <li><a href="store.php">The Fishing Store</a></li>
          <?php 
             if(!isset($_SESSION["email"])) {
               echo "<li><a href='login.php'>Log In/Sign Up</a></li>";
@@ -70,9 +71,9 @@ $sql = "select userLevel FROM user where email = '$email'";
   
 // print_r ($result);
   if($userResult == "u") {
-           echo "Welcome User $email!";
+           echo "<h4>Welcome User $email!</h4>";
          }else if ($userResult == "a"){
-          echo "<h3>Welcome Admin $email!</h3>";
+          echo "<h4>Welcome Admin $email!</h4>";
          }
       
 

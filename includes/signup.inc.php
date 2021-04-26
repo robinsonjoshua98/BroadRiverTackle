@@ -1,4 +1,9 @@
 <?php
+  // echo $_SERVER['REQUEST_METHOD'];
+// $email = "";
+// if(isset($_POST['email']) && $_POST['email'] != "") {
+//   $email = $_POST['email'];
+// }
 
 if(isset($_POST["submit"])) {
   $email =  $_POST["email"];
@@ -6,14 +11,18 @@ if(isset($_POST["submit"])) {
   $lastName =  $_POST["lastName"];
   $pwd =  $_POST["pwd"];
   $pwdrepeat =  $_POST["pwdrepeat"];
+  $phone = $_POST["phone"];
   
- 
+//   if(isset($_POST['email']) && $_POST['email'] != "") {
+//     $email = $_POST['email'];
+//   }
+  
 
   require_once "dbh.inc.php";
   require_once "functions.inc.php";
 
   
-  if (emptyInputSignup($email, $firstName, $lastName, $pwd, $pwdrepeat) !== false){
+  if (emptyInputSignup($email, $firstName, $lastName, $pwd, $pwdrepeat, $phone) !== false){
     header("location: ../signup.php?error=emptyInput");
     exit();
   }
@@ -23,10 +32,10 @@ if(isset($_POST["submit"])) {
     exit();
   }
   
-//  if (invalidEmail($email) !== false){
-//    header("location: ../signup.php?error=emptyinput");
-//    exit();
-//  }
+ if (invalidEmail($email) !== false){
+   header("location: ../signup.php?error=emptyinput");
+   exit();
+ }
   
   if (pwdMatch($pwd, $pwdrepeat) !== false){
     header("location: ../signup.php?error=passwordsdontmatch");
@@ -34,12 +43,14 @@ if(isset($_POST["submit"])) {
   }
   
   if (emailExist($conn, $email ) !== false){
-    header("location: ../signup.php?error=emailtaken");
+    header("location: ../signup.php?error=emailTaken");
     exit();
   }
   
-  create($conn, $email, $pwd, $firstName, $lastName);
+  create($conn, $email, $pwd, $firstName, $lastName, $phone);
   
+  echo $phone;
+
 }
 
 else {

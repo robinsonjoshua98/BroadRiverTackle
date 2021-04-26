@@ -3,7 +3,7 @@
   $DB_SERVER = "localhost";
  $DB_USER = "test1";
  $DB_PASS = "tackletest";
- $DB_NAME = "broad_river_tackle";
+ $DB_NAME = "broadRiverFinal";
 
 
 // $DB_SERVER = "localhost";

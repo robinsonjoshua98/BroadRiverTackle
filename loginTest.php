@@ -12,23 +12,22 @@ of tackle! Let us know if you need anything or have new ideas for us!</p>
 
 <section class="signup-form">
     <h2>Log in</h2>
-    <?php
-if (isset($_GET["error"])) {
-    if($_GET["error"] == "emptyInput") {
-        echo "<p id='red'>Fill in all fields.<p>";
-    } else if ($_GET["error"] == "wronglogin") {
-        echo "<p id='red'>Invalid Login Credentials<p>";
-    }
-} 
-
-?>
 <form action="includes/login.inc.php" method="post">
 <input type="text" name="email" placeholder="Email..">
 <input type="password" name="pwd" placeholder="Password.."><br>
 
 <button type="submit" name="submit">Log in</button>
 </form>
+<?php
+if (isset($_GET["error"])) {
+    if($_GET["error"] == "emptyInput") {
+        echo "<p>Fill in all fields.<p>";
+    } else if ($_GET["error"] == "wronglogin") {
+        echo "<p>Invalid Login Credentials<p>";
+    }
+} 
 
+?>
 </section>
 
 <p>Don't have an account?</p>
