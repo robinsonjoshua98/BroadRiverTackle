@@ -27,32 +27,8 @@ if (emptyInputProduct($product, $description, $category, $price, $image) !== fal
   exit();
 }
 }
+$sql = "INSERT INTO `products` (`product_id`, `category_id`, `product_name`, `description`, `list_price`, `date_added`, `image`) VALUES (NULL, '2', 'FISHING POLE', 'VERY GOOD POLE', '25.00', CURRENT_TIMESTAMP, '-64564');"
 
-// if (invalidEmail($email) !== false){
-//   header("location: ../signup.php?error=invalidemail");
-//   exit();
-// }
-
-// if (invalidEmail($email) !== false){
-//  header("location: ../signup.php?error=emptyinput");
-//  exit();
-// }
-
-// if (pwdMatch($pwd, $pwdrepeat) !== false){
-//   header("location: ../signup.php?error=passwordsdontmatch");
-//   exit();
-// }
-
-// if (emailExist($conn, $email ) !== false){
-//   header("location: ../signup.php?error=emailTaken");
-//   exit();
-// }
-
-// create($conn, $email, $pwd, $firstName, $lastName, $phone);
-
-// echo $phone;
-
-// }
 
 // else {
 // header("location: ../signup.php?error=bad");

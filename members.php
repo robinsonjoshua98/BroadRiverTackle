@@ -15,8 +15,6 @@ if(!isset($_SESSION["email"])) {
   if (isset($_GET["error"])) {
     if($_GET["error"] == "emptyInput") {
         echo "<p id='red'>Fill in all fields.<p>";
-    } else if ($_GET["error"] == "invalidemail") {
-        echo "<p id='red'>Invalid Email.<p>";
     } else if ($_GET["error"] == "passwordsdontmatch") {
         echo "<p id='red'>Your two passwords did not match.<p>";
     } else if ($_GET["error"] == "emailTaken") {

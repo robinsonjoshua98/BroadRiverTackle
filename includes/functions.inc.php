@@ -75,7 +75,8 @@ function create($conn, $email, $pwd, $firstName, $lastName, $phone) {
     header("location: ../signup.php?error=stmtfailed");
     exit();
   } 
-  
+
+ 
   $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
   
   mysqli_stmt_bind_param($stmt, "sssss", $email, $hashedPwd, $firstName, $lastName, $phone);
@@ -84,6 +85,24 @@ function create($conn, $email, $pwd, $firstName, $lastName, $phone) {
   header("location: ../signup.php?error=none" );
   exit();
 }
+
+function createProduct($conn, $product, $description, $category, $price, $image) {
+  $sql = "INSERT INTO user (product_name, description, list_price, date_added, image) VALUES (?, ?, ?, ?, ?)";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)){
+    header("location: ../member.php?error=stmtfailed");
+    exit();
+  } 
+  
+  
+  mysqli_stmt_bind_param($stmt, "sssss", $product, $description, $category, $price, $image);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmts);
+  header("location: ../signup.php?error=none" );
+  exit();
+}
+
+
 
 function emptyInputLogin($username, $pwd) {
    $result;
