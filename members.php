@@ -11,19 +11,70 @@ if(!isset($_SESSION["email"])) {
   <p id="center">Bring a member allows you special access to different areas and tools on the website!</p>
 
   <h3>My Post</h3>
-  <?php
-  if (isset($_GET["error"])) {
-    if($_GET["error"] == "emptyInput") {
-        echo "<p id='red'>Fill in all fields.<p>";
-    } else if ($_GET["error"] == "passwordsdontmatch") {
-        echo "<p id='red'>Your two passwords did not match.<p>";
-    } else if ($_GET["error"] == "emailTaken") {
-        echo "<p id='red'>Your email is already taken.<p>";
-    } else if ($_GET["error"] == "none") {
-        echo "<p id='blue'>You have succesfully signed up! You can now login!<p>";
-    }
+<?php 
+  // if (isset($_GET["error"])) {
+  //   if($_GET["error"] == "emptyInput") {
+  //       echo "<p id='red'>Fill in all fields.<p>";
+  //   } else if ($_GET["error"] == "passwordsdontmatch") {
+  //       echo "<p id='red'>Your two passwords did not match.<p>";
+  //   } else if ($_GET["error"] == "emailTaken") {
+  //       echo "<p id='red'>Your email is already taken.<p>";
+  //   } else if ($_GET["error"] == "none") {
+  //       echo "<p id='blue'>You have succesfully signed up! You can now login!<p>";
+  //   }
+  // }
+  // if(isset($_POST["submit"])) {
+  //   $product =  $_POST["product"];
+  //   $description =  $_POST["description"];
+  //   $category =  $_POST["category"];
+  //   $price =  $_POST["price"];
+  //   $image =  $_POST["image"];
+  
+ 
+  
+  
+  // }
+  // echo $product ."<br>".$description."<br>".$category."<br>".$price."<br>".$image;
+
+
+  if(isset($_SESSION["email"])) {
+    // echo "<p>Hello there ".$_SESSION["email"]. "!</p>";
+  
+    $email = $_SESSION["email"];
+  
+  
+  $sql = "select userId FROM user where email = '$email'";
+  
+  
+    $result = mysqli_query($conn, $sql);
+    $level = mysqli_fetch_assoc($result);
+    // print $level['userLevel'];
+    // exit();
+  
+    $userResult = $level['userId'];
+    // print $userResult;
+    // $conn->close();
+    echo $userResult;
+    
+  // print_r ($result);
+  //   if($userResult == "u") {
+  //            echo "<h4>Welcome User $email!</h4>";
+  //          }else if ($userResult == "a"){
+  //           echo "<h4>Welcome Admin $email!</h4>";
+  //          }
+        
+  
+  // } else {
+  // echo "<p>Welcome Guest </p>";
+  
   }
-  ?>
+
+
+
+
+
+
+  // ?> 
 <div id="productForm">
 <h4>Add A New Product</h4>
 <form action="includes/members.inc.php" method="post">

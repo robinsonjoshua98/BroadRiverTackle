@@ -18,7 +18,7 @@ $image =  $_POST["image"];
 //   }
 
 
-// require_once "dbh.inc.php";
+require_once "dbh.inc.php";
 require_once "functions.inc.php";
 
 
@@ -27,8 +27,10 @@ if (emptyInputProduct($product, $description, $category, $price, $image) !== fal
   exit();
 }
 }
-$sql = "INSERT INTO `products` (`product_id`, `category_id`, `product_name`, `description`, `list_price`, `date_added`, `image`) VALUES (NULL, '2', 'FISHING POLE', 'VERY GOOD POLE', '25.00', CURRENT_TIMESTAMP, '-64564');"
+$sql = "INSERT INTO `products` (`product_id`, `category_id`, `product_name`, `description`, `list_price`, `date_added`, `image`) VALUES (NULL, $category, $product, $description, $price, CURRENT_TIMESTAMP, $image);";
 
+
+createProduct($conn, $product, $description, $category, $price);
 
 // else {
 // header("location: ../signup.php?error=bad");
