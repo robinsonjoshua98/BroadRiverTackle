@@ -11,6 +11,18 @@
    return $result;
  }
 
+ function emptyInputProduct($product, $description, $category, $price, $image
+ ) {
+    $result;
+    if (empty($product) ||empty($description) ||empty($category) ||empty($price) || empty($image)) {
+      $result = true;
+    } else {
+      $result = false;
+    }
+    return $result;
+  }
+
+
  function invalidEmail($email) {
    $result;
    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

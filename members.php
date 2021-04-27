@@ -11,9 +11,24 @@ if(!isset($_SESSION["email"])) {
   <p id="center">Bring a member allows you special access to different areas and tools on the website!</p>
 
   <h3>My Post</h3>
-
+  <?php
+  if (isset($_GET["error"])) {
+    if($_GET["error"] == "emptyInput") {
+        echo "<p id='red'>Fill in all fields.<p>";
+    } else if ($_GET["error"] == "invalidemail") {
+        echo "<p id='red'>Invalid Email.<p>";
+    } else if ($_GET["error"] == "passwordsdontmatch") {
+        echo "<p id='red'>Your two passwords did not match.<p>";
+    } else if ($_GET["error"] == "emailTaken") {
+        echo "<p id='red'>Your email is already taken.<p>";
+    } else if ($_GET["error"] == "none") {
+        echo "<p id='blue'>You have succesfully signed up! You can now login!<p>";
+    }
+  }
+  ?>
 <div id="productForm">
-<form action="test" method="post">
+<h4>Add A New Product</h4>
+<form action="includes/members.inc.php" method="post">
 <input type="text" name="product" placeholder="Product Name.." >
 <input type="text" name="description" placeholder="Description.."><br>
 <label for="category">Choose a category:</label><br>
