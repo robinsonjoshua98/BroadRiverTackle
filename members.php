@@ -11,7 +11,7 @@ if(!isset($_SESSION["email"])) {
   <p id="center">Bring a member allows you special access to different areas and tools on the website!</p>
 
   <h3>My Post</h3>
-  <a href="post-update.php">Change my posting!</a><br>
+  <a href="post-update.php" id="update">Change one of my post</a><br>
 <?php 
   // if (isset($_GET["error"])) {
   //   if($_GET["error"] == "emptyInput") {
@@ -55,9 +55,9 @@ if(!isset($_SESSION["email"])) {
     $userId = $level['userId'];
     // print $userResult;
     // $conn->close();
-    echo $userId;
-    echo "<br>";
-    echo $email;
+    // echo $userId;
+    // echo "<br>";
+    // echo $email;
 
 
 
@@ -67,7 +67,7 @@ $memberResult = mysqli_query($conn, $memberSql);
 
 while($row = mysqli_fetch_assoc($memberResult)) {
     // $mysqlResult = "{$row['userLevel']}<br>";
-    echo "<div id='store'><p>" . $row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>" . $row['category_id']. "</p><p>$". $row['list_price']. " </p></div><br>";
+    echo "<div id='store'><p>" . $row['product_id']. "</p><p>" . $row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>" . $row['category_id']. "</p><p>$". $row['list_price']. " </p></div><br>";
 }
 // print $mysqlResult;
 
@@ -97,6 +97,7 @@ while($row = mysqli_fetch_assoc($memberResult)) {
 <h4>Add A New Product</h4>
 <form action="includes/members.inc.php" method="post">
 <input type="text" name="product" placeholder="Product Name.." >
+<input type="hidden" name="user" value="<?php echo $email?>">
 <input type="text" name="description" placeholder="Description.."><br>
 <label for="category">Choose a category:</label><br>
 <select for="category" name="category">

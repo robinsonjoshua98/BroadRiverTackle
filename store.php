@@ -4,7 +4,11 @@ include_once "header.php"
 ?>
 
 <main>
-
+<h2>Welcome to the Tackle Shop!</h2>
+<form action="search.inc.php" method="POST">
+    <input type="text" name="search" placeholder="Search">
+    <button type="submit" name="submit-search">Submit</button>
+</form>
 <?php
     $sql = "select * FROM products";
     $result = mysqli_query($conn, $sql);

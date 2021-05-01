@@ -86,8 +86,8 @@ function create($conn, $email, $pwd, $firstName, $lastName, $phone) {
   exit();
 }
 
-function createProduct($conn, $product, $description, $category, $price) {
-  $sql = "INSERT INTO products (product_name, descriptions, category_id, list_price) VALUES (?, ?, ?, ?)";
+function createProduct($conn, $product, $description, $category, $price, $userId) {
+  $sql = "INSERT INTO products (product_name, descriptions, category_id, list_price, userId) VALUES (?, ?, ?, ?, ?)";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)){
     header("location: ../members.php?error=stmtfailed");
@@ -95,7 +95,7 @@ function createProduct($conn, $product, $description, $category, $price) {
   } 
   
   
-  mysqli_stmt_bind_param($stmt, "ssss", $product, $description, $category, $price);
+  mysqli_stmt_bind_param($stmt, "sssss", $product, $description, $category, $price, $userId);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmts);
   header("location: ../members.php?error=none" );
