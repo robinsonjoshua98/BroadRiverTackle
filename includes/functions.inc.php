@@ -102,6 +102,24 @@ function createProduct($conn, $product, $description, $category, $price) {
   exit();
 }
 
+// function updateProduct($conn, $product, $description, $category, $price) {
+//   $sql = "INSERT INTO products (product_name, descriptions, category_id, list_price) VALUES (?, ?, ?, ?)";
+//   $sql = "update products set category_id = '$category_id', product_name='$product_name', descriptions='$descriptions', list_price='$list_price'where product_id='1'";
+//   $stmt = mysqli_stmt_init($conn);
+//   if (!mysqli_stmt_prepare($stmt, $sql)){
+//     header("location: ../members.php?error=stmtfailed");
+//     exit();
+//   } 
+  
+  
+//   mysqli_stmt_bind_param($stmt, "ssss", $product, $description, $category, $price);
+//   mysqli_stmt_execute($stmt);
+//   mysqli_stmt_close($stmts);
+//   header("location: ../members.php?error=none" );
+//   exit();
+// }
+
+
 
 
 function emptyInputLogin($username, $pwd) {

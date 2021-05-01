@@ -11,6 +11,7 @@ if(!isset($_SESSION["email"])) {
   <p id="center">Bring a member allows you special access to different areas and tools on the website!</p>
 
   <h3>My Post</h3>
+  <a href="post-update.php">Change my posting!</a><br>
 <?php 
   // if (isset($_GET["error"])) {
   //   if($_GET["error"] == "emptyInput") {
@@ -51,10 +52,27 @@ if(!isset($_SESSION["email"])) {
     // print $level['userLevel'];
     // exit();
   
-    $userResult = $level['userId'];
+    $userId = $level['userId'];
     // print $userResult;
     // $conn->close();
-    echo $userResult;
+    echo $userId;
+    echo "<br>";
+    echo $email;
+
+
+
+$memberSql = "select * FROM products where userId = $userId";
+$memberResult = mysqli_query($conn, $memberSql);
+// $conn->close();
+
+while($row = mysqli_fetch_assoc($memberResult)) {
+    // $mysqlResult = "{$row['userLevel']}<br>";
+    echo "<div id='store'><p>" . $row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>" . $row['category_id']. "</p><p>$". $row['list_price']. " </p></div><br>";
+}
+// print $mysqlResult;
+
+
+
     
   // print_r ($result);
   //   if($userResult == "u") {
@@ -93,7 +111,7 @@ if(!isset($_SESSION["email"])) {
 <input type="text" name="price" placeholder="List Price.."><br>
 <label for="myfile">Select an image:</label>
 <input type="file" name="image" placeholder="Image.."><br>
-<button type="submit" name="submit">Sign up</button>
+<button type="submit" name="submit">Add Product</button>
 </div>
 
 

@@ -33,7 +33,6 @@ session_start();
      <nav>
        <ul>
          <li><a href="index.php">Home</a></li>
-         <li><a href="products.php">Products</a></li>
          <li><a href="contact-us.php">Contact Us</a></li>
          <li><a href="store.php">The Fishing Store</a></li>
          <?php 

@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=PT+Serif&display=swap');
 
 html {
-  background-color: rgb(78, 119, 216);
+  /* background-color: rgb(78, 119, 216); */
+  background-color: #fff;
   /* text-align: center; */
 }
 
@@ -150,8 +151,9 @@ footer {
 }
 
 #store {
-  background-color: #757171;
-  padding-bottom: 2rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 2rem;
 }
 
 .link {
