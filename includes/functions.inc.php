@@ -98,7 +98,7 @@ function createProduct($conn, $product, $description, $category, $price, $userId
   mysqli_stmt_bind_param($stmt, "sssss", $product, $description, $category, $price, $userId);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmts);
-  header("location: ../members.php?error=none" );
+  header("location: ../members.php?error=noneEEE" );
   exit();
 }
 

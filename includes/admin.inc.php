@@ -40,7 +40,7 @@ require_once "functions.inc.php";
 
   
 createProduct($conn, $product, $description, $category, $price, $userId);
-
+echo "Error: " . $testsql . "<br>" . mysqli_error($conn)
 // else {
 // header("location: ../signup.php?error=bad");
 // exit();

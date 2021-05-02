@@ -14,6 +14,24 @@ session_start();
  if(isset($_SESSION["email"])) {
  $email = $_SESSION["email"];
  }
+ if(isset($_SESSION["email"])) {
+  // echo "<p>Hello there ".$_SESSION["email"]. "!</p>";
+
+  $email = $_SESSION["email"];
+
+
+$sql = "select userLevel FROM user where email = '$email'";
+
+
+  $result = mysqli_query($conn, $sql);
+  $level = mysqli_fetch_assoc($result);
+  // print $level['userLevel'];
+  // exit();
+
+  $userResult = $level['userLevel'];
+  // print $userResult;
+  // $conn->close();
+}
 
 ?>
 
@@ -39,8 +57,13 @@ session_start();
             if(!isset($_SESSION["email"])) {
               echo "<li><a href='login.php'>Log In/Sign Up</a></li>";
             }else {
+              if ($userResult == "u"){
             echo "<li><a href='members.php'>My Account</a></li>";
             echo "<li><a href='includes/logout.inc.php'>Log Out ". $email ."? </a></li>";
+              } else {
+            echo "<li><a href='admins.php'>Admins Section</a></li>";
+            echo "<li><a href='includes/logout.inc.php'>Log Out ". $email ."? </a></li>";
+              }
             }
             ?>
 
@@ -50,36 +73,16 @@ session_start();
      </nav>
 
 <?php
-if(isset($_SESSION["email"])) {
-  // echo "<p>Hello there ".$_SESSION["email"]. "!</p>";
 
-  $email = $_SESSION["email"];
-
-
-$sql = "select userLevel FROM user where email = '$email'";
-
-
-  $result = mysqli_query($conn, $sql);
-  $level = mysqli_fetch_assoc($result);
-  // print $level['userLevel'];
-  // exit();
-
-  $userResult = $level['userLevel'];
-  // print $userResult;
-  // $conn->close();
-  
 // print_r ($result);
   if($userResult == "u") {
            echo "<h4>Welcome User $email!</h4>";
          }else if ($userResult == "a"){
           echo "<h4>Welcome Admin $email!</h4>";
-         }
-      
+         } else {
+            echo "<p>Welcome Guest </p>";
 
-} else {
-echo "<p>Welcome Guest </p>";
-
-}
+            }
 
 ?>
    </header>
