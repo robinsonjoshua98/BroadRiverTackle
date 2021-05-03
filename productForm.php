@@ -1,8 +1,8 @@
 <?php 
-// if(!isset($_SESSION["email"])) {
-//     header("location: signup.php");
-//   }
-// echo $email;
+if(!($email)) {
+    header("location: signup.php");
+  }
+echo $email;
 
 $email = '123@mail.com';
 

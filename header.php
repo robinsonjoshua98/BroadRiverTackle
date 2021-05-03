@@ -25,12 +25,7 @@ $sql = "select userLevel FROM user where email = '$email'";
 
   $result = mysqli_query($conn, $sql);
   $level = mysqli_fetch_assoc($result);
-  // print $level['userLevel'];
-  // exit();
-
   $userResult = $level['userLevel'];
-  // print $userResult;
-  // $conn->close();
 }
 
 ?>
@@ -47,7 +42,8 @@ $sql = "select userLevel FROM user where email = '$email'";
        
  <body>
    <header>
-     <h1>Welcome to Broad River Tackle!</h1>
+     <!-- <h1>Welcome to Broad River Tackle!</h1> -->
+     <img src="assets/img/logoFinal.png" > 
      <nav>
        <ul>
          <li><a href="index.php">Home</a></li>

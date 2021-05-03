@@ -5,7 +5,7 @@ include_once "header.php"
 
 <main>
 <h2>Search Products</h2>
-<a href="store.php">Back to products page</a>
+<a href="store.php" id="backStore">Back to products page</a>
 <?php
 
     if (isset($_POST['submit-search'])){
@@ -19,7 +19,7 @@ include_once "header.php"
                 echo "<div id='store'><p>" . $row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>$". $row['list_price']. " </p></div><br>";
             }
         } else {
-            echo "There are no results matching your search.";
+            echo "<p id='search'>There are no results matching your search.</p>";
         }
 
     }

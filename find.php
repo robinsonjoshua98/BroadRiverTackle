@@ -2,6 +2,10 @@
 
 include_once "header.php";
 
+if(!isset($_SESSION["email"])) {
+  header("location: signup.php");
+}
+
 if(isset($_POST["submit"])) {
   $product =  $_POST["product"];
 
@@ -63,8 +67,8 @@ $categorySQL = "select category_name FROM categories where category_id = '$categ
 $categoryResult = mysqli_query($conn, $categorySQL);
   $category = mysqli_fetch_assoc($categoryResult);
   $categoryName = $category['category_name'];
-echo $categoryName;
-echo $category_id
+// echo $categoryName;
+// echo $category_id
 // $result = mysqli_query($conn, $sql);
 // $level = mysqli_fetch_assoc($result);
 // print $level['userLevel'];
@@ -77,8 +81,8 @@ echo $category_id
 
 ?>
 <main>
-<h4>Change My Product</h4>
-<form action="includes/membersProductUpdate.inc.php" method="post">
+<h4 class="updateForm">Change My Product</h4>
+<form class="updateForm" action="includes/membersProductUpdate.inc.php" method="post">
 <input type="text" name="product" value= "<?php echo $product_name?>">
 <input type="hidden" name="productId" value= "<?php echo $product?>">
 <input type="text" name="description" value= "<?php echo $descriptions?>"><br>

@@ -4,7 +4,7 @@
 <main>
 
 
-  <h2>The industries answer to used fishing tackle</h2>
+  <h2>The industry's answer to used fishing tackle</h2>
   <p>Do you have old tackle laying around that you don't
     use or no longer have a use for? Well look no further,
     we at Broad River Tackle have come up with a solution
@@ -14,7 +14,7 @@
     like but never even opened? Well this is the place for
     you. Simply create an account and you can start selling or buying. </p>
 
-  <img src="img/pole.jpeg" alt="Fishing Pole" class="responsive">
+  <img src="assets/img/pole.jpeg" alt="Fishing Pole" class="responsive">
 
 
 </main>

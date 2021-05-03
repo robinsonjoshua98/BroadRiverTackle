@@ -2,12 +2,16 @@
 
 html {
   /* background-color: rgb(78, 119, 216); */
-  background-color: #fff;
-  /* text-align: center; */
+  background-color: rgb(184, 184, 184);
+  text-align: center;
 }
 
 p {
   font-family: 'PT Serif', serif;
+}
+
+h1 {
+  font-size: 60px;
 }
 
 h1, 
@@ -27,6 +31,12 @@ ul {
   text-align: center;
 }
 
+h1,
+h2,
+h3,
+p {
+  color: #fff;
+}
 
 li {
   display: inline;
@@ -38,12 +48,12 @@ li {
   text-decoration: none;
 }
 
-a:hover,
+/* a:hover,
 li:hover {
   background-color: #ccc;
-  /* opacity: .65; */
+
   text-decoration: underline;
-}
+} */
 
 a:visited,
 li:visited {
@@ -68,7 +78,7 @@ img {
 }
 
 main {
-  background-color: rgb(213, 220, 238);
+  background-color: rgb(13, 29, 71);
   border: solid 1px #d3d3d3;
   font-size: calc(12px + (20 - 16) * (100vw - 320px) / (1200 - 320));
   margin: 1rem auto;
@@ -86,7 +96,7 @@ input[type=text],
 select,
 textarea,
 input[type=password] {
-  border: 1px solid #ccc;
+  border: 2px solid #000;
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 6px;
@@ -94,10 +104,14 @@ input[type=password] {
   padding: 12px;
   resize: vertical;
   width: 80%;
+  font-weight: bold;
 }
+
+
 
 label {
   margin: 2rem;
+  font-weight: bold;
 }
 input[type=file] {
  padding-bottom: 2rem;
@@ -105,7 +119,7 @@ input[type=file] {
 
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: rgb(13, 29, 71);
   border: none;
   border-radius: 4px;
   color: white;
@@ -120,7 +134,7 @@ input[type=submit]:hover {
 
 /* Add a background color and some padding around the form */
 .container {
-  background-color: tan;
+  background-color: #fff;
   border-radius: 5px;
   padding: 20px;
 }
@@ -192,13 +206,69 @@ footer {
 #productForm {
   border: 3px solid #accace;
   text-align: center;
-  padding: 2rem;
+  padding: 4rem;
+  color: #fff;
 }
 
 #update {
  text-decoration: underline;
- background-color: #fff;
- border-radius: 2rem;
- padding: 10px;
-  margin: 3rem;
+ background-color: #fff; 
+ padding: 1.5rem;
+ border-radius: 3rem; 
+ /* margin: 3rem; */
+
+/* border: 1px solid blue; */
+}
+
+#update:hover {
+  text-decoration: underline;
+  background-color: rgb(179, 179, 179); 
+  padding: 1.5rem;
+  border-radius: 3rem; 
+  /* margin: 3rem; */
+ 
+ /* border: 1px solid blue; */
+ }
+
+/* #update ul {
+  background-color: #fff; 
+  padding: 4rem; 
+}
+
+#update li {
+  background-color: #fff; 
+ border-radius: 3rem; 
+ height: 20px;
+ padding: 4rem; 
+}
+
+#update a {
+  background-color: #fff; 
+ border-radius: 3rem; 
+ padding: 4rem; 
+} */
+
+#updatePost {
+
+  padding: 1rem;
+  /* border: red 1px solid; */
+  height: 5rem;
+  text-align: center;
+}
+
+#backStore {
+  text-decoration: underline;
+  color: rgb(122, 121, 121);
+}
+#store p {
+  color: #000;
+  text-align: left;
+}
+
+#search {
+  color: #fff;
+}
+
+.updateForm {
+  color: #fff;
 }
