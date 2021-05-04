@@ -20,43 +20,44 @@ if(!isset($_SESSION["email"])) {
 </ul>
 </div>
   <?php
-
-$sql = "select userId FROM user where email = '$email'";
   
+  $userSql = "select userId FROM user where email = ?;";
   
-$result = mysqli_query($conn, $sql);
-$level = mysqli_fetch_assoc($result);
-$name = $level['userId'];
-//     // exit();
 
-$userId = $level['userId'];
-  $memberSql = "select product_id from products where userId ='$userId'";
-// $memberSql = "select * FROM products where userId = $userId";
-$memberResult = mysqli_query($conn, $memberSql);
-// $conn->close();
+  $stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $userSql)) {
+  echo "SQL Statement Failed";
+} else {
+  mysqli_stmt_bind_param($stmt, "s", $email);
 
-while($row = mysqli_fetch_assoc($memberResult)) {
-    $mysqlResult = "{$row['product_id']}<br>";
-}
+  mysqli_stmt_execute($stmt);
+  $resultSet = mysqli_stmt_get_result($stmt);
+  
+while($row = mysqli_fetch_assoc($resultSet)) {
+    // $mysqlResult = "{$row['userLevel']}<br>";
+    $userId = $row['userId'];
+    // echo $userId;
 
-$sql = "select * FROM products where userId ='$userId'";
-$result = mysqli_query($conn, $sql);
+$productSql = "select * FROM products where userId = ?";
 
-while($row = mysqli_fetch_assoc($result)) {
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $productSql)) {
+  echo "SQL Statement Failed";
+} else {
+  mysqli_stmt_bind_param($stmt, "s", $userId);
+
+  mysqli_stmt_execute($stmt);
+  $resultSet = mysqli_stmt_get_result($stmt);
+
+
+while($row = mysqli_fetch_assoc($resultSet)) {
     // $mysqlResult = "{$row['userLevel']}<br>";
     echo "<div id='store'><p>Product Id Number: ". $row['product_id']. "</p><p>" . $row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>$". $row['list_price']. " </p></div><br>";
 }
+}
+}
 
-
-
-
-// if ($queryResult > 0) {
-//   while ($row = mysqli_fetch_assoc($result)){
-//       echo "<div id='store'><p>" . $row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>$". $row['list_price']. " </p></div><br>";
-//   }
-// } else {
-//   echo "There are no results matching your search.";
-// }
+}
 
 
 
@@ -65,6 +66,11 @@ while($row = mysqli_fetch_assoc($result)) {
 
 <div id="productForm">
 <h4>Add A New Product</h4>
+<?php  
+
+$cow;
+
+?>
 <form action="includes/admin.inc.php" method="post">
 <input type="hidden" name="user" value="<?php echo $name?>">
 <input type="text" name="product" placeholder="Product Name.." ><br>

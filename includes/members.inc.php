@@ -7,11 +7,11 @@
 // }
 
 if(isset($_POST["submit"])) {
-$product =  $_POST["product"];
-$description =  $_POST["description"];
-$category =  $_POST["category"];
-$price =  $_POST["price"];
-$userId =  $_POST["user"];
+$product =  htmlspecialchars($_POST["product"]);
+$description =  htmlspecialchars($_POST["description"]);
+$category =  htmlspecialchars($_POST["category"]);
+$price =  htmlspecialchars($_POST["price"]);
+$userId =  htmlspecialchars($_POST["user"]);
 
 
 

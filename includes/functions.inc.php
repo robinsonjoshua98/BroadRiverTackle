@@ -153,7 +153,7 @@ function create($conn, $email, $pwd, $firstName, $lastName, $phone) {
   mysqli_stmt_bind_param($stmt, "sssss", $email, $hashedPwd, $firstName, $lastName, $phone);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmts);
-  header("location: ../signup.php?error=none" );
+  header("location: ../login.php?error=none" );
   exit();
 }
 
@@ -316,14 +316,3 @@ function getUserLevel($conn, $email){
 
 }
 
-
-// function admin($conn, $username){
-//   $sql = "select userLevel FROM user where email = $username";
-//   $result = mysqli_query($conn, $sql);
-//   // $conn->close();
-  
-//   while($row = mysqli_fetch_assoc($result)) {
-//       $mysqlResult = "{$row['userLevel']}<br>";
-//   }
-//   return $mysqlResult;
-//   }

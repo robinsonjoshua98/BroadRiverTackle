@@ -7,7 +7,7 @@
 ?>
 
 <h4>Delete A New Product</h4>
-<p id="deleted">Please enter the product Id for the product you want to delete.</p>
+<p id="delete">Please enter the product Id for the product you want to delete.</p>
 <?php
 if(isset($_POST["submit"])) {
   $product_id =  $_POST["product_id"];
@@ -53,7 +53,7 @@ $sql = "select userId FROM user where email = '$email'";
   
   
 <form action="delete.php" method="post">
-<input type="text" name="product_id" placeholder="Product Id.." >
+<input type="text" name="product_id" placeholder="Product Id.." ><br>
 <button type="submit" name="submit">Change Product</button>
 <?php
 // if(isset($_POST["submit"])) {

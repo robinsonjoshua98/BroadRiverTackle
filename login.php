@@ -8,6 +8,9 @@ include_once "header.php"
 <h2>Register or Sign In!</h2>
 <p>We appreciate your desire to be apart of the Broad River Tackle Team! We are trying to make this as flawless as possible for users to view all sorts 
 of tackle! Let us know if you need anything or have new ideas for us!</p>
+<p>Don't have an account?</p>
+<a href="signup.php"><p id="sign-up">Sign up here!</p></a>
+
 </div>
 
 <section class="signup-form">
@@ -31,8 +34,7 @@ if (isset($_GET["error"])) {
 
 </section>
 
-<p>Don't have an account?</p>
-<a href="signup.php"><p>Sign up here!</p></a>
+
 
 </main>
 <?php

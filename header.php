@@ -9,14 +9,20 @@ session_start();
  } else {
 
   $email = $_SESSION["email"];
+  // $first = $_SESSION["firstName"];
 
 
 $sql = "select userLevel FROM user where email = '$email'";
+$nameSql = "select firstName FROM user where email = '$email'";
 
 
   $result = mysqli_query($conn, $sql);
   $level = mysqli_fetch_assoc($result);
   $userResult = $level['userLevel'];
+
+  $result = mysqli_query($conn, $nameSql);
+  $name = mysqli_fetch_assoc($result);
+  $fName = $name['firstName'];
 }
 
 ?>
@@ -34,7 +40,7 @@ $sql = "select userLevel FROM user where email = '$email'";
  <body>
    <header>
      <!-- <h1>Welcome to Broad River Tackle!</h1> -->
-     <img src="assets/img/logoFinal.png" > 
+     <img src="assets/img/logoFinal.png" alt="BRT-Logo" height="342" width="1000"> 
      <nav>
        <ul>
          <li><a href="index.php">Home</a></li>
@@ -63,11 +69,11 @@ $sql = "select userLevel FROM user where email = '$email'";
 
 // print_r ($result);
   if($userResult == "u") {
-           echo "<h4>Welcome User $email!</h4>";
+           echo "<h4>Welcome User $fName!</h4>";
          }else if ($userResult == "a"){
-          echo "<h4>Welcome Admin $email!</h4>";
+          echo "<h4>Welcome Admin $fName!</h4>";
          } else {
-            echo "<p>Welcome Guest </p>";
+            echo "<h4>Welcome Guest </h4>";
 
             }
 

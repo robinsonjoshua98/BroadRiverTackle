@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Fira+Sans&family=Heebo:wght@500&display=swap');
 
 html {
   /* background-color: rgb(78, 119, 216); */
@@ -6,8 +7,9 @@ html {
   text-align: center;
 }
 
-p {
-  font-family: 'PT Serif', serif;
+p,
+a {
+  font-family: 'Merriweather Sans', sans-serif;
 }
 
 h1 {
@@ -19,6 +21,7 @@ h2,
 h3,
 h4 {
   font-family: 'Libre Baskerville', serif;
+  /* font-family: 'EB Garamond', serif; */
   text-align: center;
 }
 
@@ -297,3 +300,8 @@ footer h3 {
 #deleted {
   color: #000;
 }
+
+#sign-up {
+  text-decoration: underline;
+}
+

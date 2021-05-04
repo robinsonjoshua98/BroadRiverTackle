@@ -1,7 +1,7 @@
 
 <?php
-include_once "../header.php";
-require_once "dbh.inc.php";
+require_once "includes/dbh.inc.php";
+require_once "header.php";
 
 if(!isset($_SESSION["email"])) {
     header("location: signup.php");
@@ -9,11 +9,11 @@ if(!isset($_SESSION["email"])) {
   
 
 if(isset($_POST["submit"])) {
-  $product_name =  $_POST["product"];
-  $product_id =  $_POST["productId"];
-  $descriptions =  $_POST["description"];
-  $category_id =  $_POST["category"];
-  $list_price  =  $_POST["price"];
+  $product_name =  htmlspecialchars($_POST["product"]);
+  $product_id =  htmlspecialchars($_POST["productId"]);
+  $descriptions =  htmlspecialchars($_POST["description"]);
+  $category_id =  htmlspecialchars($_POST["category"]);
+  $list_price  =  htmlspecialchars($_POST["price"]);
 
 
 // $category_id = $_POST["category_id"];
@@ -24,10 +24,16 @@ if(isset($_POST["submit"])) {
 
 
 $sql = "update products set category_id = '$category_id', product_name='$product_name', descriptions='$descriptions', list_price='$list_price'where product_id=$product_id";
+?>
 
+<main>
+  <?php
 if ($conn->query($sql) === TRUE) {
-	echo "Records updated: ".$category_id."-".$product_name."-".$descriptions."-".$list_price;
+  
+  echo "<p>Records updated: ".$category_id."-".$product_name."-".$descriptions."-".$list_price."</p>";
 } else {
 	echo "Error: ".$sql."<br>".$conn->error;
 }
 }
+?>
+</main>

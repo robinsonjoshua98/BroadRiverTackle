@@ -7,7 +7,7 @@ if(!isset($_SESSION["email"])) {
 }
 
 if(isset($_POST["submit"])) {
-  $product =  $_POST["product"];
+  $product =  htmlspecialchars($_POST["product"]);
 
 
 $email = $_SESSION["email"];
@@ -65,7 +65,7 @@ $categoryResult = mysqli_query($conn, $categorySQL);
 ?>
 <main>
 <h4 class="updateForm">Change My Product</h4>
-<form class="updateForm" action="includes/membersProductUpdate.inc.php" method="post">
+<form class="updateForm" action="membersProductUpdate.inc.php" method="post">
 <input type="text" name="product" value= "<?php echo $product_name?>">
 <input type="hidden" name="productId" value= "<?php echo $product?>">
 <input type="text" name="description" value= "<?php echo $descriptions?>"><br>

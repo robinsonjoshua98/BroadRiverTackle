@@ -3,9 +3,9 @@
 
 
     $name = $_POST['name'];
-    $mailFrom = $_POST['email'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
+    $mailFrom = htmlspecialchars($_POST['email']);
+    $subject = htmlspecialchars($_POST['subject']);
+    $message = htmlspecialchars($_POST['message']);
 
     $mailTo = "joshuarobinson@broadrivertackle.com";
     $header = "From: ". $mailFrom;

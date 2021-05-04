@@ -20,68 +20,73 @@ if(!isset($_SESSION["email"])) {
 <?php
 if(isset($_POST["submit"])) {
 
-  $product = $_POST["product"];
+  $product = htmlspecialchars($_POST["product"]);
 
-$findSql = "SELECT product_id FROM products where product_id = '$product';";
+$findSql = "SELECT product_id FROM products where product_id = ?;";
+
 $stmt = mysqli_stmt_init($conn);
-if (!mysqli_stmt_prepare($stmt, $findSql)){
-  // header("location: ../adminUpdate.php?error=sql");
-  // exit();
-  echo "error";
-}
-
-$resultData = mysqli_query($conn, $findSql);
-if (!$row = mysqli_fetch_assoc($resultData)) {
-  echo "You dont have a post with this Identification number";
+if (!mysqli_stmt_prepare($stmt, $findSql)) {
+  echo "SQL Statement Failed";
 } else {
-$sql = "select * FROM products where product_id = '$product';";
-$result = $conn->query($sql);
+  mysqli_stmt_bind_param($stmt, "s", $product);
 
-if ($result->num_rows > 0){
+  mysqli_stmt_execute($stmt);
+  $productExist = mysqli_stmt_get_result($stmt);
+  
+if(!$row = mysqli_fetch_assoc($productExist)) {
+  echo "<p>You dont have a post with this Identification number</p>;";
+}
+  else {
+  
+    $productSql = "select * FROM products where product_id = ?;";
 
-$row = $result->fetch_assoc();
+    $stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $productSql)) {
+  echo "SQL Statement Failed 2";
+} else {
+  mysqli_stmt_bind_param($stmt, "s", $product);
+
+  mysqli_stmt_execute($stmt);
+  $productResult = mysqli_stmt_get_result($stmt);
+  
+  while($row = mysqli_fetch_assoc($productResult)){
 
 $category_id = $row["category_id"];
 $product_name = $row["product_name"];
 $descriptions = $row["descriptions"];
 $list_price = $row["list_price"];
 
-
-
-//   $product =  $_POST["product"];
-//   $sql = "SELECT product_id FROM products WHERE product_id = '$product';";
-
-//     $stmt = mysqli_stmt_init($conn);
-//     if(!mysqli_stmt_prepare($stmt, $sql)) {
-//     echo "SQL error";
-//     } else {
-//     mysqli_stmt_bind_param($stmt, "s", $product);
-//     mysqli_stmt_execute($stmt);
-    
-//     }
-// }
-
-// $result = $conn->query($sql);
-
-// if ($result->num_rows > 0){
-
-// $row = $result->fetch_assoc();
-
-// $category_id = $row["category_id"];
-// $product_name = $row["product_name"];
-// $descriptions = $row["descriptions"];
-// $list_price = $row["list_price"];
-
-
-
-// }
-
-$categorySQL = "select category_name FROM categories where category_id = '$category_id'";
-$categoryResult = mysqli_query($conn, $categorySQL);
-  $category = mysqli_fetch_assoc($categoryResult);
-  $category_name = $category['category_name'];
-echo $category_name;
 echo $category_id;
+echo $product_name;
+$category_id;
+
+  }
+
+
+$categorySQL = "select category_name FROM categories where category_id = ?";
+
+
+
+
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $categorySQL)) {
+  echo "SQL Statement Failed";
+} else {
+  mysqli_stmt_bind_param($stmt, "i", $category_id);
+
+  mysqli_stmt_execute($stmt);
+  $categoryResult = mysqli_stmt_get_result($stmt);
+  
+if($row = mysqli_fetch_assoc($categoryResult)) {
+  
+  $category_name = $row['category_name'];
+}
+
+  }
+
+}}
+
+
 
 ?>
 <main>
@@ -107,7 +112,7 @@ echo $category_id;
 <?php
 }
 }
-}
+
 ?>
 
 <?php
