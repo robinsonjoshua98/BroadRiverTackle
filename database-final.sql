@@ -1,14 +1,11 @@
--- Test User
--- 
+/* Test User
 -- testuser@mail.com
 -- user123
---
 -- Test Admin
--- 
--- testadmin@mail.com
+-  testadmin@mail.com
 -- admin123
 --
---
+*/
 --
 --
 --
