@@ -28,25 +28,25 @@ $nameSql = "select firstName FROM user where email = '$email'";
 ?>
 
 <!DOCTYPE html>
- <html lang="en">
+<html lang="en">
 
- <head>
-   <title>Broad River Tackle Company</title>
-   <link rel="stylesheet" href="css/styles.css?v=<?php echo time(); ?>">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0";>
- </head>
+<head>
+  <title>Broad River Tackle Company</title>
+  <link rel="stylesheet" href="css/styles.css?v=<?php echo time(); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" ;>
+</head>
 
-       
- <body>
-   <header>
-     <!-- <h1>Welcome to Broad River Tackle!</h1> -->
-     <img src="assets/img/logoFinal.png" alt="BRT-Logo" height="342" width="1000"> 
-     <nav>
-       <ul>
-         <li><a href="index.php">Home</a></li>
-         <li><a href="contact-us.php">Contact Us</a></li>
-         <li><a href="store.php">The Fishing Store</a></li>
-         <?php 
+
+<body>
+  <header>
+    <!-- <h1>Welcome to Broad River Tackle!</h1> -->
+    <img src="assets/img/logoFinal.png" alt="BRT-Logo" height="342" width="1000">
+    <nav>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="contact-us.php">Contact Us</a></li>
+        <li><a href="store.php">The Fishing Store</a></li>
+        <?php 
             if(!isset($_SESSION["email"])) {
               echo "<li><a href='login.php'>Log In/Sign Up</a></li>";
             }else {
@@ -61,11 +61,11 @@ $nameSql = "select firstName FROM user where email = '$email'";
             ?>
 
 
-         
-       </ul>
-     </nav>
 
-<?php
+      </ul>
+    </nav>
+
+    <?php
 
 // print_r ($result);
   if($userResult == "u") {
@@ -78,4 +78,4 @@ $nameSql = "select firstName FROM user where email = '$email'";
             }
 
 ?>
-   </header>
+  </header>

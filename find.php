@@ -64,26 +64,26 @@ $categoryResult = mysqli_query($conn, $categorySQL);
 
 ?>
 <main>
-<h4 class="updateForm">Change My Product</h4>
-<form class="updateForm" action="membersProductUpdate.inc.php" method="post">
-<input type="text" name="product" value= "<?php echo $product_name?>">
-<input type="hidden" name="productId" value= "<?php echo $product?>">
-<input type="text" name="description" value= "<?php echo $descriptions?>"><br>
-<label for="category">Choose a category:</label><br>
-<select for="category" name="category">
-  <optgroup label="Category">
-    <option value = "<?php echo $category_id?>" selected><?php echo $categoryName?> </option>
-    <option value="1">unknown</option>
-    <option value="2">Freshwater</option>
-    <option value="3">Saltwater</option>
-    <option value="4">FreshWater/Saltwater</option>
-    <option value="5">Brackish</option>
-  </optgroup>
-</select>
-<input type="text" name="price" value= "<?php echo $list_price?>"><br>
-<button type="submit" name="submit">Update</button>
-</div>
-<?php
+  <h4 class="updateForm">Change My Product</h4>
+  <form class="updateForm" action="membersProductUpdate.inc.php" method="post">
+    <input type="text" name="product" value="<?php echo $product_name?>">
+    <input type="hidden" name="productId" value="<?php echo $product?>">
+    <input type="text" name="description" value="<?php echo $descriptions?>"><br>
+    <label for="category">Choose a category:</label><br>
+    <select for="category" name="category">
+      <optgroup label="Category">
+        <option value="<?php echo $category_id?>" selected><?php echo $categoryName?> </option>
+        <option value="1">unknown</option>
+        <option value="2">Freshwater</option>
+        <option value="3">Saltwater</option>
+        <option value="4">FreshWater/Saltwater</option>
+        <option value="5">Brackish</option>
+      </optgroup>
+    </select>
+    <input type="text" name="price" value="<?php echo $list_price?>"><br>
+    <button type="submit" name="submit">Update</button>
+    </div>
+    <?php
 // echo $userId;
 
 

@@ -315,4 +315,3 @@ function getUserLevel($conn, $email){
 
 
 }
-

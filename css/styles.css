@@ -16,7 +16,7 @@ h1 {
   font-size: 60px;
 }
 
-h1, 
+h1,
 h2,
 h3,
 h4 {
@@ -120,8 +120,9 @@ label {
   margin: 2rem;
   font-weight: bold;
 }
+
 input[type=file] {
- padding-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
 /* Style the submit button with a specific background color etc */
@@ -223,24 +224,24 @@ footer h3 {
 
 
 #update {
- text-decoration: underline;
- background-color: #fff; 
- padding: 1.5rem;
- border-radius: 3rem; 
- /* margin: 3rem; */
+  text-decoration: underline;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 3rem;
+  /* margin: 3rem; */
 
-/* border: 1px solid blue; */
+  /* border: 1px solid blue; */
 }
 
 #update:hover {
   text-decoration: underline;
-  background-color: rgb(179, 179, 179); 
+  background-color: rgb(179, 179, 179);
   padding: 1.5rem;
-  border-radius: 3rem; 
+  border-radius: 3rem;
   /* margin: 3rem; */
- 
- /* border: 1px solid blue; */
- }
+
+  /* border: 1px solid blue; */
+}
 
 /* #update ul {
   background-color: #fff; 
@@ -272,6 +273,7 @@ footer h3 {
   text-decoration: underline;
   color: rgb(122, 121, 121);
 }
+
 #store p {
   color: #000;
   text-align: left;
@@ -304,4 +306,3 @@ footer h3 {
 #sign-up {
   text-decoration: underline;
 }
-

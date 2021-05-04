@@ -11,7 +11,7 @@ if(!isset($_SESSION["email"])) {
 ?>
 <main>
 <?php
-$sql = "select * FROM products where product_id = '1';";
+$sql = "select * FROM products where product_id = '2';";
 //   $result = mysqli_query($conn, $sql);
 $result = $conn->query($sql);
 

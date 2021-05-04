@@ -36,8 +36,8 @@ if(isset($_POST["submit"])) {
   }
   ?>
 <form action="adminDelete.php" method="post">
-<input type="text" name="product_id" placeholder="Product Id.." >
-<button type="submit" name="submit">Change Product</button>
-<?php
+  <input type="text" name="product_id" placeholder="Product Id.."><br>
+  <button type="submit" name="submit">Delete Product</button>
+  <?php
  include_once "footer.php";
 ?>
