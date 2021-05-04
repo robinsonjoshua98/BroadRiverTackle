@@ -1,5 +1,9 @@
 <?php
   include_once 'header.php';
+  if(!isset($_SESSION["email"])) {
+    header("location: signup.php");
+  }
+  
 ?>
 <h4>Update a Product</h4>
 <form action="find.php" method="post">

@@ -4,9 +4,9 @@ include_once "header.php"
 ?>
 
 <main>
-<h2>Search Products</h2>
-<a href="store.php" id="backStore">Back to products page</a>
-<?php
+  <h2>Search Products</h2>
+  <a href="store.php" id="backStore">Back to products page</a>
+  <?php
 
     if (isset($_POST['submit-search'])){
         $search = mysqli_real_escape_string($conn, $_POST['search']);

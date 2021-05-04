@@ -5,16 +5,11 @@
   if(!isset($_SESSION["email"])) {
       header("location: signup.php");
     }
- 
   }
-  
- 
   if(!isset($_SESSION["email"])) {
     header("location: signup.php");
   }
-
 ?>
-
 <h4>Delete A Product</h4>
 <?php
 if(isset($_POST["submit"])) {

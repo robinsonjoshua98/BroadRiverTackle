@@ -1,6 +1,4 @@
 <?php
-// include_once "includes/dbh.inc.php";
-// include_once "../header.php";
 
 include_once "functions.inc.php";
 include_once "dbh.inc.php";
@@ -10,24 +8,16 @@ session_start();
   $email = '';
   $userResult = '';
  } else {
-
   $email = $_SESSION["email"];
-  // $first = $_SESSION["firstName"];
-
-
-$sql = "select userLevel FROM user where email = '$email'";
-$nameSql = "select firstName FROM user where email = '$email'";
-
-
+  $sql = "select userLevel FROM user where email = '$email'";
+  $nameSql = "select firstName FROM user where email = '$email'";
   $result = mysqli_query($conn, $sql);
   $level = mysqli_fetch_assoc($result);
   $userResult = $level['userLevel'];
-
   $result = mysqli_query($conn, $nameSql);
   $name = mysqli_fetch_assoc($result);
   $fName = $name['firstName'];
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +29,8 @@ $nameSql = "select firstName FROM user where email = '$email'";
   <meta name="viewport" content="width=device-width, initial-scale=1.0" ;>
 </head>
 
-
 <body>
   <header>
-    <!-- <h1>Welcome to Broad River Tackle!</h1> -->
     <img src="../assets/img/logoFinal.png" alt="BRT-Logo" height="342" width="1000">
     <nav>
       <ul>
@@ -62,32 +50,21 @@ $nameSql = "select firstName FROM user where email = '$email'";
               }
             }
             ?>
-
-
-
       </ul>
     </nav>
-
     <?php
 
 // print_r ($result);
   if($userResult == "u") {
            echo "<h4>Welcome User $fName!</h4>";
-         }else if ($userResult == "a"){
+         } else if ($userResult == "a"){
           echo "<h4>Welcome Admin $fName!</h4>";
          } else {
             echo "<h4>Welcome Guest </h4>";
-
-            }
-
-?>
+      }
+    ?>
   </header>
   <?php
-
-// if(!isset($_SESSION["email"])) {
-//     header("location: signup.php");
-//   }
-  
 
 if(isset($_POST["submit"])) {
   $product_name =  htmlspecialchars($_POST["product"]);
@@ -95,14 +72,6 @@ if(isset($_POST["submit"])) {
   $descriptions =  htmlspecialchars($_POST["description"]);
   $category_id =  htmlspecialchars($_POST["category"]);
   $list_price  =  htmlspecialchars($_POST["price"]);
-
-
-// $category_id = $_POST["category_id"];
-// $product_name = $_POST["product_name"];
-// $descriptions = $_POST["descriptions"];
-// $list_price = $_POST["list_price"];
-
-
 
 $sql = "update products set category_id = '$category_id', product_name='$product_name', descriptions='$descriptions', list_price='$list_price'where product_id=$product_id";
 ?>

@@ -10,6 +10,7 @@ if(!isset($_SESSION["email"])) {
 <main>
   <h2>Welcome to the members area!</h2>
   <p id="center">Bring a member allows you special access to different areas and tools on the website!</p>
+  
 <h3>My Listings</h3>
 
 <?php 
@@ -17,24 +18,9 @@ if(!isset($_SESSION["email"])) {
     $result = mysqli_query($conn, $sql);
     $level = mysqli_fetch_assoc($result);
     $name = $level['userId'];
-
-  
     $userId = $level['userId'];
-
-
-
 $memberSql = "select product_id from products where userId ='$userId'";
-// $memberSql = "select * FROM products where userId = $userId";
 $memberResult = mysqli_query($conn, $memberSql);
-// $conn->close();
-
-// while($row = mysqli_fetch_assoc($memberResult)) {
-//     $mysqlResult = "{$row['product_id']}<br>";
-
-// //     echo "<div><p>". $row['product_id'] ."</p></div>";
-// //     // echo "<div id='store'><p>" . $row['product_id']. "</p><p>" . $row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>" . $row['category_id']. "</p><p>$". $row['list_price']. " </p></div><br>";
-// }
-
 $sql = "select * FROM products where userId ='$userId'";
 $result = mysqli_query($conn, $sql);
 // $conn->close();
@@ -56,9 +42,19 @@ if ($queryResult > 0) {
   echo "<p>You have no post yet.</p>";
 }
 
+
  ?> 
 <div id="productForm">
 <h4>Add A New Product</h4>
+<?php
+  if (isset($_GET["error"])) {
+    if($_GET["error"] == "emptyInput") {
+        echo "<p id='red'>Fill in all fields.<p>";
+    } else if ($_GET["error"] == "none") {
+        echo "<p id='red'>Post Successfully added!<p>";
+    }
+} 
+?>
 <form action="includes/members.inc.php" method="post">
 <input type="hidden" name="user" value="<?php echo $name?>">
 <label for="product">Product Name</label><br>

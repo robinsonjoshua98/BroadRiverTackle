@@ -53,7 +53,7 @@ $sql = "select userId FROM user where email = '$email'";
 
 <form action="delete.php" method="post">
   <label for="product_id">Enter the Product ID Number To Delete</label><br>
-  <input type="text" name="product_id" id="product_id"placeholder="Product Id.."><br>
+  <input type="text" name="product_id" id="product_id" placeholder="Product Id.."><br>
   <button type="submit" name="submit">Change Product</button>
   <?php
 // if(isset($_POST["submit"])) {

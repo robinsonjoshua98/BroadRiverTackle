@@ -1,5 +1,14 @@
 <?php
 include_once "header.php";
+if(!($userResult == "a")) {
+    header("location: members.php");
+  if(!isset($_SESSION["email"])) {
+      header("location: signup.php");
+    }
+  }
+  if(!isset($_SESSION["email"])) {
+    header("location: signup.php");
+  }
 
 if(isset($_POST["submit"])) {
 
@@ -42,8 +51,6 @@ $descriptions = $row["descriptions"];
 $list_price = $row["list_price"];
 
   }
-
-
 $categorySQL = "select category_name FROM categories where category_id = ?";
 
 
@@ -61,60 +68,38 @@ if (!mysqli_stmt_prepare($stmt, $categorySQL)) {
 if($row = mysqli_fetch_assoc($categoryResult)) {
   
   $category_name = $row['category_name'];
-}
-
-  }
-
-}
-  
-}
-}} 
-?> 
+              }
+           }
+        }
+      }
+   }
+} 
+?>
 <main>
-<h4 id="success">Change My Product</h4>
-<form action="includes/membersProductUpdate.inc.php" method="post" id="adminUpdate">
-<label for="product" class="white">Product Name:</label><br>
-<input type="text" name="product" id="product" value= "<?php if(isset($_POST["submit"])) {echo $product_name;} ?>">
+  <h4 id="success">Change My Product</h4>
+  <form action="includes/membersProductUpdate.inc.php" method="post" id="adminUpdate">
+    <label for="product" class="white">Product Name:</label><br>
+    <input type="text" name="product" id="product" value="<?php if(isset($_POST["submit"])) {echo $product_name;} ?>">
 
-<input type="hidden" name="productId"  id="productId" value= "<?php if(isset($_POST["submit"])) {echo $product;} ?>"><br>
-<label for="description" class="white">Product Description:</label><br>
-<input type="text" name="description" id="description" value= "<?php if(isset($_POST["submit"])) {echo $descriptions;} ?>"><br>
-<label for="category" class="updateForm">Choose a category:</label><br>
-<select for="category" name="category">
-  <optgroup label="Category">
-    <option value =  "<?php if(isset($_POST["submit"])) {echo $category_id;}?>" selected> <?php if(isset($_POST["submit"])) {echo $category_name;}?></option>
-    <option value="1">unknown</option>
-    <option value="2">Freshwater</option>
-    <option value="3">Saltwater</option>
-    <option value="4">FreshWater/Saltwater</option>
-    <option value="5">Brackish</option>
-  </optgroup>
-</select><br>
-<label for="price" class="white">Product Description:</label><br>
-<input type="text" name="price" id="price" value= "<?php echo $list_price?>"><br>
-<button type="submit" name="submit">Update</button><br>
-</div>
-<?php
-
-
-
-?>
-
-<?php
- include_once "footer.php";
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <input type="hidden" name="productId" id="productId" value="<?php if(isset($_POST["submit"])) {echo $product;} ?>"><br>
+    <label for="description" class="white">Product Description:</label><br>
+    <input type="text" name="description" id="description" value="<?php if(isset($_POST["submit"])) {echo $descriptions;} ?>"><br>
+    <label for="category" class="updateForm">Choose a category:</label><br>
+    <select for="category" name="category">
+      <optgroup label="Category">
+        <option value="<?php if(isset($_POST["submit"])) {echo $category_id;}?>" selected> <?php if(isset($_POST["submit"])) {echo $category_name;}?></option>
+        <option value="1">unknown</option>
+        <option value="2">Freshwater</option>
+        <option value="3">Saltwater</option>
+        <option value="4">FreshWater/Saltwater</option>
+        <option value="5">Brackish</option>
+      </optgroup>
+    </select><br>
+    <label for="price" class="white">Product Description:</label><br>
+    <input type="text" name="price" id="price" value="<?php echo $list_price?>"><br>
+    <button type="submit" name="submit">Update</button><br>
+    </div>
+    
+    <?php
+    include_once "footer.php";
+    ?>

@@ -1,6 +1,4 @@
 <?php 
-
-
 /**
  * Test for empty signup from the sign up page
  * 
@@ -102,7 +100,6 @@ function pwdMatch($pwd, $pwdrepeat) {
  * @return bool false if email is not in database 
  */
 
-
 function emailExist($conn, $email) {
   $sql = "SELECT * FROM user WHERE email = ?;";
   $stmt = mysqli_stmt_init($conn);
@@ -116,7 +113,6 @@ function emailExist($conn, $email) {
   
   $resultData = mysqli_stmt_get_result($stmt);
 
-  
   if ($row = mysqli_fetch_assoc($resultData)) {
     return $row;
   } else {
@@ -125,7 +121,6 @@ function emailExist($conn, $email) {
   }
   mysqli_stmt_close($stmts);
 }
-
 /**
  * Creates a user in the database
  * 
@@ -138,7 +133,6 @@ function emailExist($conn, $email) {
  * @phone decimal
  * 
  */
-
 function create($conn, $email, $pwd, $firstName, $lastName, $phone) {
   $sql = "INSERT INTO user (email, passwords, firstName, lastName, phone) VALUES (?, ?, ?, ?, ?)";
   $stmt = mysqli_stmt_init($conn);
@@ -147,9 +141,7 @@ function create($conn, $email, $pwd, $firstName, $lastName, $phone) {
     exit();
   } 
 
- 
   $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-  
   mysqli_stmt_bind_param($stmt, "sssss", $email, $hashedPwd, $firstName, $lastName, $phone);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmts);
@@ -169,7 +161,6 @@ function create($conn, $email, $pwd, $firstName, $lastName, $phone) {
  * @userId decimal
  * 
  */
-
 function createProduct($conn, $product, $description, $category, $price, $userId) {
   $sql = "INSERT INTO products (product_name, descriptions, category_id, list_price, userId) VALUES (?, ?, ?, ?, ?)";
   $stmt = mysqli_stmt_init($conn);
@@ -182,7 +173,6 @@ function createProduct($conn, $product, $description, $category, $price, $userId
     header("location: ../members.php?error=stmtfailed");
     exit();
   } 
-  
   
   mysqli_stmt_bind_param($stmt, "sssss", $product, $description, $category, $price, $userId);
   mysqli_stmt_execute($stmt);
@@ -203,31 +193,13 @@ function createAdminProduct($conn, $product, $description, $category, $price, $u
     header("location: ../admins.php?error=stmtfailed");
     exit();
   } 
-  
-  
+
   mysqli_stmt_bind_param($stmt, "sssss", $product, $description, $category, $price, $userId);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmts);
   header("location: ../admins.php?error=none" );
   exit();
 }
-
-// function updateProduct($conn, $product, $description, $category, $price) {
-//   $sql = "INSERT INTO products (product_name, descriptions, category_id, list_price) VALUES (?, ?, ?, ?)";
-//   $sql = "update products set category_id = '$category_id', product_name='$product_name', descriptions='$descriptions', list_price='$list_price'where product_id='1'";
-//   $stmt = mysqli_stmt_init($conn);
-//   if (!mysqli_stmt_prepare($stmt, $sql)){
-//     header("location: ../members.php?error=stmtfailed");
-//     exit();
-//   } 
-  
-  
-//   mysqli_stmt_bind_param($stmt, "ssss", $product, $description, $category, $price);
-//   mysqli_stmt_execute($stmt);
-//   mysqli_stmt_close($stmts);
-//   header("location: ../members.php?error=none" );
-//   exit();
-// }
 
 /**
  * Checks for all fields filled in on login
@@ -261,8 +233,6 @@ function emptyInputLogin($username, $pwd) {
  * @pwd string
  * 
  */
-
-
  function loginUser($conn, $username, $pwd){
   $emailExist = emailExist($conn, $username);
 
@@ -285,7 +255,6 @@ function emptyInputLogin($username, $pwd) {
     exit(); 
   } 
 }
-
 /**
  * Pulls the user level from the database
  * 
@@ -296,8 +265,6 @@ function emptyInputLogin($username, $pwd) {
  * return $resultData
  * 
  */
-
-
 function getUserLevel($conn, $email){
   $sql = "SELECT userLevel FROM user WHERE email = ?";
   $stmt = mysqli_stmt_init($conn);
@@ -312,6 +279,4 @@ function getUserLevel($conn, $email){
   
   $resultData = mysqli_stmt_get_result($stmt);
   return $resultData;
-
-
 }

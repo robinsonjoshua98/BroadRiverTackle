@@ -64,9 +64,9 @@ header {
   background-color: #accace;
   border: solid 1px #d3d3d3;
   font-size: calc(12px + (21 - 16) * (100vw - 320px) / (1200 - 320));
-  margin-bottom: 0; 
+  margin-bottom: 0;
   padding: 2rem;
- 
+
 }
 
 .link {
@@ -101,7 +101,7 @@ input[type=password] {
   padding: 12px;
   resize: vertical;
   width: 80%;
-  
+
 }
 
 label {
@@ -124,9 +124,9 @@ input[type=submit] {
 }
 
 .responsive {
-   height: auto;
-   max-width: 100%;
- 
+  height: auto;
+  max-width: 100%;
+
 }
 
 /* When moving the mouse over the submit button, add a darker green color */
@@ -262,8 +262,8 @@ footer h3 {
   color: #fff;
 }
 
-#nullId{
-color: #000;
+#nullId {
+  color: #000;
 }
 
 @media screen and (max-width: 650px) {
@@ -278,6 +278,7 @@ color: #000;
   }
 
   #store {
-    margin-top: 5rem;;
+    margin-top: 5rem;
+    ;
   }
 }

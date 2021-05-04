@@ -5,11 +5,6 @@
  $DB_PASS = "tackletest";
  $DB_NAME = "broadRiverFinal";
 
-
-//  name dbvxgityoyxtht
-//  u5vk6vs7g2ire
-//  empgtgtiu2kc
-
 // $DB_SERVER = "localhost";
 // $DB_USER = "u5vk6vs7g2ire";
 // $DB_PASS = "empgtgtiu2kc";

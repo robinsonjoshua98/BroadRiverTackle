@@ -39,8 +39,6 @@ if(!$row = mysqli_fetch_assoc($resultData)) {
   echo "<a id='sign-up' href='members.php'>Back to My Account</a>";
 }else {
 
-  echo "good";
-
   $productSql = "select * FROM products where product_id = ?;";
   
   $stmt = mysqli_stmt_init($conn);
@@ -61,21 +59,6 @@ $list_price = $row["list_price"];
    
 }
   }
- 
-  //   mysqli_stmt_bind_param($stmt, "s", $product);
-  
-  //   mysqli_stmt_execute($stmt);
-  //   $productResult = mysqli_stmt_get_result($stmt);
-    
-  //   while($row = mysqli_fetch_assoc($productResult)){
-
-  //     $userId = $row['userId'];
-    
-  
-
-// echo $product;
-echo "<br>";
-echo $userId;
 
 $findSql = "SELECT product_id FROM products WHERE userId = ? AND product_id = ?;";
   $stmt = mysqli_stmt_init($conn);
@@ -86,8 +69,7 @@ $findSql = "SELECT product_id FROM products WHERE userId = ? AND product_id = ?;
   mysqli_stmt_execute($stmt);
   }
  
- 
-echo $category_id;
+
   $categorySQL = "select category_name FROM categories where category_id = ?";
 
 
@@ -112,11 +94,11 @@ if($row = mysqli_fetch_assoc($categoryResult)) {
 <main>
   <h4 class="updateForm">Change My Product</h4>
   <form class="updateForm" action="includes/membersProductUpdate.inc.php" method="post">
-  <label for="product">Product Name:</label><br>
-    <input type="text" name="product" id="product"value="<?php echo $product_name?>">
+    <label for="product">Product Name:</label><br>
+    <input type="text" name="product" id="product" value="<?php echo $product_name?>">
     <input type="hidden" name="productId" value="<?php echo $product?>"><br>
     <label for="product_desc">Product Description:</label><br>
-    <input type="text" name="description" id="product_desc"value="<?php echo $descriptions?>"><br>
+    <input type="text" name="description" id="product_desc" value="<?php echo $descriptions?>"><br>
     <label for="category">Choose a category:</label><br>
     <select for="category" name="category">
       <optgroup label="Category">
