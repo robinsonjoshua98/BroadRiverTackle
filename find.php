@@ -25,30 +25,13 @@ $sql = "select userId FROM user where email = '$email'";
     header("location: ../signup.php?error=emailtaken");
     exit();
   }
-  
-  // mysqli_stmt_bind_param($stmt, "s", $user);
-  // mysqli_stmt_execute($stmt);
-  
-  // $resultData = mysqli_stmt_get_result($stmt);
 
   $resultData = mysqli_query($conn, $findSql);
   if (!$row = mysqli_fetch_assoc($resultData)) {
-    // return $row;
     echo "You dont have a post with this Identification number";
   } else {
-    // $result = false;
-    // return $result;
-    
-
-
-
-
-
-
-// $sql = "select userId FROM user where email = '$email'";
-$sql = "select * FROM products where product_id = '$product';";
-//   $result = mysqli_query($conn, $sql);
-$result = $conn->query($sql);
+  $sql = "select * FROM products where product_id = '$product';";
+  $result = $conn->query($sql);
 
 if ($result->num_rows > 0){
 
@@ -98,8 +81,6 @@ $categoryResult = mysqli_query($conn, $categorySQL);
   </optgroup>
 </select>
 <input type="text" name="price" value= "<?php echo $list_price?>"><br>
-<label for="myfile">Select an image:</label>
-<input type="file" name="image" placeholder="Image.."><br>
 <button type="submit" name="submit">Update</button>
 </div>
 <?php
@@ -129,3 +110,6 @@ $categoryResult = mysqli_query($conn, $categorySQL);
 //   }
 }
 }
+
+include_once "footer.php";
+?>

@@ -4,6 +4,13 @@
 <main>
   <h2>Contact Us</h2>
 
+  <?php
+  if (isset($_GET["mailsent"])) {
+    if($_GET["mailsent"] == "yes") {
+        echo "<p>Mail Sent Successfully<p>";
+    } 
+}
+?>
   <div class="container">
   <form action="contact_form.php" method="post">
 

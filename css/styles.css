@@ -43,6 +43,10 @@ li {
   padding: 1rem;
 }
 
+#intro {
+  text-align: left;
+}
+
 a,
 li {
   text-decoration: none;
@@ -156,6 +160,10 @@ footer {
   padding: 2rem;
 }
 
+footer h3 {
+  color: rgb(93, 93, 93);
+}
+
 @media screen and (max-width: 650px) {
 
   li {
@@ -209,6 +217,7 @@ footer {
   padding: 4rem;
   color: #fff;
 }
+
 
 #update {
  text-decoration: underline;
@@ -271,4 +280,20 @@ footer {
 
 .updateForm {
   color: #fff;
+}
+
+#deleted {
+  color: #000;
+}
+
+#success {
+  color: #fff;
+}
+
+#adminUpdate {
+  padding-bottom: 2rem;
+}
+
+#deleted {
+  color: #000;
 }

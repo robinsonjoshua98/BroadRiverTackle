@@ -5,36 +5,6 @@
 <section class="signup-form">
     <h2>Sign Up</h2>
     <?php
-
-    // $email = "";
-    // $pwd = "";
-    // $pwdRepeat = "";
-    // $firstName = "";
-    // $lastName = "";
-
-    // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    //     $name = $email = '';
-    
-    //     if (empty($_POST['name'])) {
-    //         $nameError = 'Name should be filled';
-    //     } else {
-    //         $name = trim(htmlspecialchars($_POST['name']));
-    //     }    
-    
-    // }
-    
-    
-    // if (isset($_POST['email'])) {
-    //     echo $_POST['email'];
-    //   }
-    // echo $_SERVER['REQUEST_METHOD'];
-    // $email = '';
-    // if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        
-    //     echo "hello";
-    // $email =  $_POST["email"];
-    // } 
 if (isset($_GET["error"])) {
     if($_GET["error"] == "emptyInput") {
         echo "<p id='red'>Fill in all fields.<p>";
@@ -45,7 +15,7 @@ if (isset($_GET["error"])) {
     } else if ($_GET["error"] == "emailTaken") {
         echo "<p id='red'>Your email is already taken.<p>";
     } else if ($_GET["error"] == "none") {
-        echo "<p id='blue'>You have succesfully signed up! You can now login!<p>";
+        echo "<p id='sucess'>You have succesfully signed up! You can now login!<p>";
     }
 } ?>
 <form action="includes/signup.inc.php" method="post">

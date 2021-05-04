@@ -7,9 +7,7 @@
 ?>
 
 <h4>Delete A New Product</h4>
-<form action="delete.php" method="post">
-<input type="text" name="product_id" placeholder="Product Id.." >
-<button type="submit" name="submit">Change Product</button>
+<p id="deleted">Please enter the product Id for the product you want to delete.</p>
 <?php
 if(isset($_POST["submit"])) {
   $product_id =  $_POST["product_id"];
@@ -45,12 +43,59 @@ $sql = "select userId FROM user where email = '$email'";
           } else {
             mysqli_stmt_bind_param($stmt, "i", $product_id);
             mysqli_stmt_execute($stmt);
-            echo "<p>Deleted Succesfully.</p>";
+            echo "<p id='deleted'>Deleted Succesfully.</p>";
           }
   }
   
 }
 }
+?>
+  
+  
+<form action="delete.php" method="post">
+<input type="text" name="product_id" placeholder="Product Id.." >
+<button type="submit" name="submit">Change Product</button>
+<?php
+// if(isset($_POST["submit"])) {
+//   $product_id =  $_POST["product_id"];
+
+
+// $email = $_SESSION["email"];
+
+// $sql = "select userId FROM user where email = '$email'";
+  
+  
+//   $result = mysqli_query($conn, $sql);
+//   $level = mysqli_fetch_assoc($result);
+//   $userId = $level['userId'];
+
+//   $findSql = "SELECT product_id FROM products WHERE userId ='$userId' AND product_id = ?;";
+//   $stmt = mysqli_stmt_init($conn);
+//   if (!mysqli_stmt_prepare($stmt, $findSql)){
+//     echo "Sql error";
+//   } else {
+//     mysqli_stmt_bind_param($stmt, "i", $product_id);
+//     mysqli_stmt_execute($stmt);
+//     $result = mysqli_stmt_get_result($stmt);
+//     if (!$row = mysqli_fetch_assoc($result)) {
+//       //     // return $row;
+//           echo "You dont have a post with this Identification number";
+//         } else {
+//       //     // $result = false;
+//       //     // return $result;
+//           $deleteSql = "DELETE FROM `products` WHERE `products`.`product_id` = ?;";
+//           $stmt = mysqli_stmt_init($conn);
+//           if(!mysqli_stmt_prepare($stmt, $deleteSql)) {
+//             echo "SQL error";
+//           } else {
+//             mysqli_stmt_bind_param($stmt, "i", $product_id);
+//             mysqli_stmt_execute($stmt);
+//             echo "<p>Deleted Succesfully.</p>";
+//           }
+//   }
+  
+// }
+// }
   
   
   

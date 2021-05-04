@@ -50,7 +50,7 @@ if ($queryResult > 0) {
 </div>
 <?php
   while($row = mysqli_fetch_assoc($result)) {
-    echo "<div id='store'><p>" . $row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>$". $row['list_price']. " </p></div><br>";
+    echo "<div id='store'><p>Product Id Number: ". $row['product_id']. "</p><p>" .$row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>$". $row['list_price']. " </p></div><br>";
   }
 } else {
   echo "<p>You have no post yet.</p>";
@@ -101,8 +101,6 @@ if ($queryResult > 0) {
   </optgroup>
 </select>
 <input type="text" name="price" placeholder="List Price.."><br>
-<label for="myfile">Select an image:</label>
-<input type="file" name="image" placeholder="Image.."><br>
 <button type="submit" name="submit">Add Product</button>
 </div>
 

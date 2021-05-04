@@ -32,3 +32,6 @@ echo $email;
 <input type="file" name="image" placeholder="Image.."><br>
 <button type="submit" name="submit">Add Product</button>
 </div>
+<?php
+ include_once "footer.php";
+?>

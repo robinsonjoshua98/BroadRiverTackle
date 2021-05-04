@@ -1,6 +1,10 @@
 <?php 
 
 include_once "header.php";
+if(!($userResult == "a")) {
+  header("location: members.php");
+  // echo "yay";
+}
 
 if(!isset($_SESSION["email"])) {
     header("location: signup.php");
@@ -40,7 +44,7 @@ $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_assoc($result)) {
     // $mysqlResult = "{$row['userLevel']}<br>";
-    echo "<div id='store'><p>" . $row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>$". $row['list_price']. " </p></div><br>";
+    echo "<div id='store'><p>Product Id Number: ". $row['product_id']. "</p><p>" . $row['product_name']. "</p><p>" . $row['descriptions']. "</p><p>$". $row['list_price']. " </p></div><br>";
 }
 
 
@@ -61,9 +65,9 @@ while($row = mysqli_fetch_assoc($result)) {
 
 <div id="productForm">
 <h4>Add A New Product</h4>
-<form action="includes/members.inc.php" method="post">
-<input type="text" name="product" placeholder="Product Name.." >
-<input type="hidden" name="user" value="<?php echo $email?>">
+<form action="includes/admin.inc.php" method="post">
+<input type="hidden" name="user" value="<?php echo $name?>">
+<input type="text" name="product" placeholder="Product Name.." ><br>
 <input type="text" name="description" placeholder="Description.."><br>
 <label for="category">Choose a category:</label><br>
 <select for="category" name="category">
@@ -76,8 +80,6 @@ while($row = mysqli_fetch_assoc($result)) {
   </optgroup>
 </select>
 <input type="text" name="price" placeholder="List Price.."><br>
-<label for="myfile">Select an image:</label>
-<input type="file" name="image" placeholder="Image.."><br>
 <button type="submit" name="submit">Add Product</button>
 </div>
 
@@ -85,6 +87,7 @@ while($row = mysqli_fetch_assoc($result)) {
 </div>
   <img src="assets/img/poles.jpeg" alt="Fishing Pole" class="responsive">
 </main>
+
 
 <?php
  include_once "footer.php";

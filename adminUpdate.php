@@ -3,32 +3,64 @@ include_once 'header.php';
 if(!($userResult == "a")) {
   header("location: members.php");
 }
-  ?>
+ 
+if(!isset($_SESSION["email"])) {
+  header("location: signup.php");
+}
+ ?>
 
 
 <h4>Update a Product</h4>
 <form action="adminUpdate.php" method="post">
 <input type="text" name="product" placeholder="Product Id.." >
-<button type="submit" name="submit">Change Product</button>
+<button type="submit" name="submit">Change Product</button><br>
 
 
 
 <?php
 if(isset($_POST["submit"])) {
-  $product =  $_POST["product"];
 
+  $product = $_POST["product"];
 
-$sql = "select * FROM products where product_id = '$product';";
-
-    $stmt = mysqli_stmt_init($conn);
-    if(!mysqli_stmt_prepare($stmt, $sql)) {
-    echo "SQL error";
-    } else {
-    mysqli_stmt_bind_param($stmt, "s", $product);
-    mysqli_stmt_execute($stmt);
-    
-    }
+$findSql = "SELECT product_id FROM products where product_id = '$product';";
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $findSql)){
+  // header("location: ../adminUpdate.php?error=sql");
+  // exit();
+  echo "error";
 }
+
+$resultData = mysqli_query($conn, $findSql);
+if (!$row = mysqli_fetch_assoc($resultData)) {
+  echo "You dont have a post with this Identification number";
+} else {
+$sql = "select * FROM products where product_id = '$product';";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0){
+
+$row = $result->fetch_assoc();
+
+$category_id = $row["category_id"];
+$product_name = $row["product_name"];
+$descriptions = $row["descriptions"];
+$list_price = $row["list_price"];
+
+
+
+//   $product =  $_POST["product"];
+//   $sql = "SELECT product_id FROM products WHERE product_id = '$product';";
+
+//     $stmt = mysqli_stmt_init($conn);
+//     if(!mysqli_stmt_prepare($stmt, $sql)) {
+//     echo "SQL error";
+//     } else {
+//     mysqli_stmt_bind_param($stmt, "s", $product);
+//     mysqli_stmt_execute($stmt);
+    
+//     }
+// }
+
 // $result = $conn->query($sql);
 
 // if ($result->num_rows > 0){
@@ -44,24 +76,24 @@ $sql = "select * FROM products where product_id = '$product';";
 
 // }
 
-// $categorySQL = "select category_name FROM categories where category_id = '$category_id'";
-// $categoryResult = mysqli_query($conn, $categorySQL);
-//   $category = mysqli_fetch_assoc($categoryResult);
-//   $categoryName = $category['category_name'];
-// echo $categoryName;
-// echo $category_id;
+$categorySQL = "select category_name FROM categories where category_id = '$category_id'";
+$categoryResult = mysqli_query($conn, $categorySQL);
+  $category = mysqli_fetch_assoc($categoryResult);
+  $category_name = $category['category_name'];
+echo $category_name;
+echo $category_id;
 
 ?>
 <main>
-<h4>Change My Product</h4>
-<form action="includes/membersProductUpdate.inc.php" method="post">
-<input type="text" name="product" value= "<?php echo $product_name?>">
-<input type="hidden" name="productId" value= "<?php echo $product?>">
-<input type="text" name="description" value= "<?php echo $descriptions?>"><br>
+<h4 id="success">Change My Product</h4>
+<form action="includes/membersProductUpdate.inc.php" method="post" id="adminUpdate">
+<input type="text" name="product" value= "<?php if(isset($_POST["submit"])) {echo $product_name;} ?>">
+<input type="hidden" name="productId" value= "<?php if(isset($_POST["submit"])) {echo $product;} ?>">
+<input type="text" name="description" value= "<?php if(isset($_POST["submit"])) {echo $descriptions;} ?>"><br>
 <label for="category">Choose a category:</label><br>
 <select for="category" name="category">
   <optgroup label="Category">
-    <option value = "<?php echo $category_id?>" selected><?php echo $categoryName?> </option>
+    <option value =  "<?php if(isset($_POST["submit"])) {echo $category_id;}?>" selected> <?php if(isset($_POST["submit"])) {echo $category_name;}?></option>
     <option value="1">unknown</option>
     <option value="2">Freshwater</option>
     <option value="3">Saltwater</option>
@@ -70,10 +102,14 @@ $sql = "select * FROM products where product_id = '$product';";
   </optgroup>
 </select>
 <input type="text" name="price" value= "<?php echo $list_price?>"><br>
-<label for="myfile">Select an image:</label>
-<input type="file" name="image" placeholder="Image.."><br>
-<button type="submit" name="submit">Update</button>
+<button type="submit" name="submit">Update</button><br>
 </div>
 <?php
-// }
+}
+}
+}
+?>
+
+<?php
+ include_once "footer.php";
 ?>

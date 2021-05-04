@@ -6,10 +6,14 @@
  $DB_NAME = "broadRiverFinal";
 
 
+//  name dbvxgityoyxtht
+//  u5vk6vs7g2ire
+//  empgtgtiu2kc
+
 // $DB_SERVER = "localhost";
-// $DB_USER = "ugsxyahonfdqu";
-// $DB_PASS = "gjxt5uygaid7";
-// $DB_NAME = "dbz6rt2ohqxank";
+// $DB_USER = "u5vk6vs7g2ire";
+// $DB_PASS = "empgtgtiu2kc";
+// $DB_NAME = "dbvxgityoyxtht";
 $conn = mysqli_connect($DB_SERVER, $DB_USER, $DB_PASS, $DB_NAME);
 
 if (!$conn) {

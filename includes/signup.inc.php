@@ -1,9 +1,4 @@
 <?php
-  // echo $_SERVER['REQUEST_METHOD'];
-// $email = "";
-// if(isset($_POST['email']) && $_POST['email'] != "") {
-//   $email = $_POST['email'];
-// }
 
 if(isset($_POST["submit"])) {
   $email =  $_POST["email"];
@@ -13,15 +8,9 @@ if(isset($_POST["submit"])) {
   $pwdrepeat =  $_POST["pwdrepeat"];
   $phone = $_POST["phone"];
   
-//   if(isset($_POST['email']) && $_POST['email'] != "") {
-//     $email = $_POST['email'];
-//   }
-  
-
   require_once "dbh.inc.php";
   require_once "functions.inc.php";
 
-  
   if (emptyInputSignup($email, $firstName, $lastName, $pwd, $pwdrepeat, $phone) !== false){
     header("location: ../signup.php?error=emptyInput");
     exit();

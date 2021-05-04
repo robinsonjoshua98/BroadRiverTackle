@@ -1,21 +1,12 @@
 <?php
+include_once "includes/functions.inc.php";
+include_once "includes/dbh.inc.php";
 session_start();
-  $DB_SERVER = "localhost";
-  $DB_USER = "test1";
-  $DB_PASS = "tackletest";
-  $DB_NAME = "broadRiverFinal";
- 
- 
- // $DB_SERVER = "localhost";
- // $DB_USER = "ugsxyahonfdqu";
- // $DB_PASS = "gjxt5uygaid7";
- // $DB_NAME = "dbz6rt2ohqxank";
- $conn = mysqli_connect($DB_SERVER, $DB_USER, $DB_PASS, $DB_NAME);
- if(isset($_SESSION["email"])) {
- $email = $_SESSION["email"];
- }
- if(isset($_SESSION["email"])) {
-  // echo "<p>Hello there ".$_SESSION["email"]. "!</p>";
+
+ if(!isset($_SESSION["email"])) {
+  $email = '';
+  $userResult = '';
+ } else {
 
   $email = $_SESSION["email"];
 

@@ -2,10 +2,11 @@
   include_once 'header.php';
 ?>
 <main>
+  
 
 
   <h2>The industry's answer to used fishing tackle</h2>
-  <p>Do you have old tackle laying around that you don't
+  <p id="intro">Do you have old tackle laying around that you don't
     use or no longer have a use for? Well look no further,
     we at Broad River Tackle have come up with a solution
     to all your problems. Broad River Tackle Company is an

@@ -1,6 +1,7 @@
 
 <?php
 include_once "../header.php";
+require_once "dbh.inc.php";
 
 if(!isset($_SESSION["email"])) {
     header("location: signup.php");
