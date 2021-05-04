@@ -2,8 +2,13 @@
   include_once 'header.php';
 ?>
 <main>
-  
-
+  <?php
+if (isset($_GET["error"])) {
+    if($_GET["error"] == "none") {
+        echo "<p id='red'>Successfully signed in!<p>";
+    } 
+} 
+?>
 
   <h2>The industry's answer to used fishing tackle</h2>
   <p id="intro">Do you have old tackle laying around that you don't

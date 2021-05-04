@@ -55,41 +55,16 @@ if ($queryResult > 0) {
 } else {
   echo "<p>You have no post yet.</p>";
 }
-//print $mysqlResult;
- 
 
-
-
-// // print $mysqlResult;
-
-
-
-    
-//   // print_r ($result);
-//   //   if($userResult == "u") {
-//   //            echo "<h4>Welcome User $email!</h4>";
-//   //          }else if ($userResult == "a"){
-//   //           echo "<h4>Welcome Admin $email!</h4>";
-//   //          }
-        
-  
-//   // } else {
-//   // echo "<p>Welcome Guest </p>";
-  
-//   }
-
-
-
-
-
-
-  // ?> 
+ ?> 
 <div id="productForm">
 <h4>Add A New Product</h4>
 <form action="includes/members.inc.php" method="post">
 <input type="hidden" name="user" value="<?php echo $name?>">
-<input type="text" name="product" placeholder="Product Name.." ><br>
-<input type="text" name="description" placeholder="Description.."><br>
+<label for="product">Product Name</label><br>
+<input type="text" name="product" id="product" placeholder="Product Name.." ><br>
+<label for="product">Product Description:</label><br>
+<input type="text" name="description" id="description" placeholder="Description.."><br>
 <label for="category">Choose a category:</label><br>
 <select for="category" name="category">
   <optgroup label="Category">
@@ -99,8 +74,9 @@ if ($queryResult > 0) {
     <option value="4">FreshWater/Saltwater</option>
     <option value="5">Brackish</option>
   </optgroup>
-</select>
-<input type="text" name="price" placeholder="List Price.."><br>
+</select><br>
+<label for="price">Product Price:</label><br>
+<input type="text" name="price" id="price" placeholder="List Price.."><br>
 <button type="submit" name="submit">Add Product</button>
 </div>
 

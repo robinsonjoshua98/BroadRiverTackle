@@ -5,9 +5,13 @@ include_once "header.php"
 
 <main>
 <h2>Welcome to the Tackle Shop!</h2>
+<p id="intro">Welome to our store! Do you see anything you like or are interested in? Now its very simple to contact the user! The phone numbers and emails of each member are listed out here!
+Just shoot them a call or an email and you are that much closer to having your new fishing gear! </p>
+
 <form action="search.inc.php" method="POST">
-    <input type="text" name="search" placeholder="Search">
-    <button type="submit" name="submit-search">Submit</button>
+    <label for="search"id="search" class="white">Search:</label><br>
+    <input type="text" name="search" placeholder="Search" id="search">
+    <button type="submit" name="submit-search" id="search">Submit</button>
 </form>
 <?php
     // $sql = "select * FROM products";

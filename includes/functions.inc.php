@@ -153,7 +153,7 @@ function create($conn, $email, $pwd, $firstName, $lastName, $phone) {
   mysqli_stmt_bind_param($stmt, "sssss", $email, $hashedPwd, $firstName, $lastName, $phone);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmts);
-  header("location: ../login.php?error=none" );
+  header("location: ../signup.php?error=none" );
   exit();
 }
 
@@ -281,7 +281,7 @@ function emptyInputLogin($username, $pwd) {
     session_start();
     $_SESSION["userID"] = $emailExist["userID"];
     $_SESSION["email"] = $emailExist["email"];
-    header("location: ../index.php" );
+    header("location: ../index.php?error=none" );
     exit(); 
   } 
 }

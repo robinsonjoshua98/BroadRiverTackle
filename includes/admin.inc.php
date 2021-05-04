@@ -15,13 +15,13 @@ $userId =  $_POST["user"];
 
 
 
-require_once "dbh.inc.php";
-require_once "functions.inc.php";
+include_once "dbh.inc.php";
+include_once "functions.inc.php";
 
-}
+
   
-createAdminProduct($conn, $product, $description, $category, $price, $userId);
-
+createProduct($conn, $product, $description, $category, $price, $userId);
+}
 // else {
 // header("location: ../signup.php?error=bad");
 // exit();

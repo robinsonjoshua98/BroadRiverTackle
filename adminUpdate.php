@@ -12,7 +12,8 @@ if(!isset($_SESSION["email"])) {
 
 <h4>Update a Product</h4>
 <form action="adminUpdateCheck.php" method="post">
-<input type="text" name="product" placeholder="Product Id.." >
+<label for="product">Enter the Product ID Number</label><br>
+<input type="text" name="product" id="product" placeholder="Product Id.." ><br>
 <button type="submit" name="submit">Change Product</button><br>
 
 
